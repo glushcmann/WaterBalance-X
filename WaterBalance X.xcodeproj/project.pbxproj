@@ -10,6 +10,8 @@
 		1104A3D224769F0500703BAD /* UnitsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1104A3D124769F0500703BAD /* UnitsVC.swift */; };
 		1104A3D424769F0A00703BAD /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1104A3D324769F0A00703BAD /* Default-568h@2x.png */; };
 		1104A3D72476A3DE00703BAD /* NotificationsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1104A3D62476A3DE00703BAD /* NotificationsVC.swift */; };
+		1114DE1C247AE67F004AADE8 /* water-glass.json in Resources */ = {isa = PBXBuildFile; fileRef = 1114DE1B247AE67E004AADE8 /* water-glass.json */; };
+		1114DE1E247AE6C2004AADE8 /* OpeningVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1114DE1D247AE6C2004AADE8 /* OpeningVC.swift */; };
 		112471F024771597007E1C4E /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112471EF24771597007E1C4E /* User.swift */; };
 		112471F32477166C007E1C4E /* SetupWeightVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112471F22477166C007E1C4E /* SetupWeightVC.swift */; };
 		112471F524771CA3007E1C4E /* PersonalGoalVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112471F424771CA3007E1C4E /* PersonalGoalVC.swift */; };
@@ -17,6 +19,7 @@
 		1150729124757244004D7760 /* ConstraintsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1150729024757244004D7760 /* ConstraintsExtension.swift */; };
 		1150729324757A23004D7760 /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1150729224757A23004D7760 /* SettingsVC.swift */; };
 		1150729624758A72004D7760 /* CalcVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1150729524758A72004D7760 /* CalcVC.swift */; };
+		11A2A175247995CC00014C1E /* WeightVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A2A174247995CC00014C1E /* WeightVC.swift */; };
 		11C7F84024770224004B1A9B /* CapacityVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11C7F83F24770224004B1A9B /* CapacityVC.swift */; };
 		11F21E1924756F0E005C652A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F21E1824756F0E005C652A /* AppDelegate.swift */; };
 		11F21E1D24756F0E005C652A /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F21E1C24756F0E005C652A /* MainVC.swift */; };
@@ -29,6 +32,8 @@
 		1104A3D124769F0500703BAD /* UnitsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitsVC.swift; sourceTree = "<group>"; };
 		1104A3D324769F0A00703BAD /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		1104A3D62476A3DE00703BAD /* NotificationsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsVC.swift; sourceTree = "<group>"; };
+		1114DE1B247AE67E004AADE8 /* water-glass.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "water-glass.json"; sourceTree = "<group>"; };
+		1114DE1D247AE6C2004AADE8 /* OpeningVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpeningVC.swift; sourceTree = "<group>"; };
 		112471EF24771597007E1C4E /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		112471F22477166C007E1C4E /* SetupWeightVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupWeightVC.swift; sourceTree = "<group>"; };
 		112471F424771CA3007E1C4E /* PersonalGoalVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalGoalVC.swift; sourceTree = "<group>"; };
@@ -37,6 +42,7 @@
 		1150729024757244004D7760 /* ConstraintsExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstraintsExtension.swift; sourceTree = "<group>"; };
 		1150729224757A23004D7760 /* SettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
 		1150729524758A72004D7760 /* CalcVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalcVC.swift; sourceTree = "<group>"; };
+		11A2A174247995CC00014C1E /* WeightVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightVC.swift; sourceTree = "<group>"; };
 		11C7F83F24770224004B1A9B /* CapacityVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CapacityVC.swift; sourceTree = "<group>"; };
 		11F21E1524756F0E005C652A /* WaterBalance X.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "WaterBalance X.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		11F21E1824756F0E005C652A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -78,6 +84,14 @@
 			path = Notifications;
 			sourceTree = "<group>";
 		};
+		1114DE1A247AE61B004AADE8 /* Animations */ = {
+			isa = PBXGroup;
+			children = (
+				1114DE1B247AE67E004AADE8 /* water-glass.json */,
+			);
+			path = Animations;
+			sourceTree = "<group>";
+		};
 		112471ED24771574007E1C4E /* Main */ = {
 			isa = PBXGroup;
 			children = (
@@ -98,6 +112,8 @@
 		112471F124771633007E1C4E /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
+				1114DE1A247AE61B004AADE8 /* Animations */,
+				1114DE1D247AE6C2004AADE8 /* OpeningVC.swift */,
 				112471F22477166C007E1C4E /* SetupWeightVC.swift */,
 				112471F424771CA3007E1C4E /* PersonalGoalVC.swift */,
 				112471F624771EAF007E1C4E /* SetupNotificationsVC.swift */,
@@ -109,6 +125,7 @@
 			isa = PBXGroup;
 			children = (
 				1150729224757A23004D7760 /* SettingsVC.swift */,
+				11A2A174247995CC00014C1E /* WeightVC.swift */,
 				1150729524758A72004D7760 /* CalcVC.swift */,
 				1104A3D124769F0500703BAD /* UnitsVC.swift */,
 			);
@@ -230,6 +247,7 @@
 			files = (
 				11F21E2524756F17005C652A /* LaunchScreen.storyboard in Resources */,
 				11F21E2224756F17005C652A /* Assets.xcassets in Resources */,
+				1114DE1C247AE67F004AADE8 /* water-glass.json in Resources */,
 				1104A3D424769F0A00703BAD /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -285,8 +303,10 @@
 			files = (
 				1150729124757244004D7760 /* ConstraintsExtension.swift in Sources */,
 				1150729624758A72004D7760 /* CalcVC.swift in Sources */,
+				11A2A175247995CC00014C1E /* WeightVC.swift in Sources */,
 				112471F32477166C007E1C4E /* SetupWeightVC.swift in Sources */,
 				11C7F84024770224004B1A9B /* CapacityVC.swift in Sources */,
+				1114DE1E247AE6C2004AADE8 /* OpeningVC.swift in Sources */,
 				112471F524771CA3007E1C4E /* PersonalGoalVC.swift in Sources */,
 				112471F724771EAF007E1C4E /* SetupNotificationsVC.swift in Sources */,
 				1150729324757A23004D7760 /* SettingsVC.swift in Sources */,

@@ -8,6 +8,8 @@
 
 import UIKit
 import PanModal
+import Bond
+import ReactiveKit
 
 class MainVC: UICollectionViewController, UICollectionViewDelegateFlowLayout, UIPickerViewDelegate {
     
@@ -89,6 +91,8 @@ class MainVC: UICollectionViewController, UICollectionViewDelegateFlowLayout, UI
         super.viewDidLoad()
         collectionView.backgroundColor = .systemBackground
         setupViews()
+        
+        UserDefaults.standard.set(true, forKey: "hasLaunched")
     }
 
 

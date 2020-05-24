@@ -21,7 +21,7 @@ class UnitsVC: FormViewController {
                 $0.title = "мл"
             }
             <<< CheckRow() {
-                $0.title = "унция"
+                $0.title = "унции"
             }
         
         +++ Section("Вес")
@@ -29,7 +29,7 @@ class UnitsVC: FormViewController {
                 $0.title = "кг"
             }
             <<< CheckRow() {
-                $0.title = "фунтов"
+                $0.title = "фунты"
             }
     }
 }

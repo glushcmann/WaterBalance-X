@@ -7,11 +7,28 @@
 //
 
 import Foundation
+import Bond
+import ReactiveKit
 
-class User {
-    
-    var weight = UserDefaults.standard.integer(forKey: "weight")
-    var goal = UserDefaults.standard.integer(forKey: "goal")
-    var isNotificationsOn: Void = UserDefaults.standard.set(false, forKey: "isNotify")
-    
+struct User {
+    var weight: Int
+    var goal: Int
+    var wakeup: Date
+    var asleep: Date
+    var interval: Date
 }
+
+//class ViewModel {
+//    var user: User
+//    
+//    var weight: Observable<Int>
+//    var goal: Observable<Int>
+//    var wakeup: Observable<Date>
+//    var asleep: Observable<Date>
+//    var interval: Observable<Date>
+//    
+//    init(user: User) {
+//        self.user = user
+//    }
+//    
+//}

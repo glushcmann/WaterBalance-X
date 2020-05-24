@@ -15,29 +15,6 @@ class SettingsVC: FormViewController {
         self.dismiss(animated: true, completion: nil)
     }
     
-    func showAlertWithTextField() {
-        let alertController = UIAlertController(title: "Моя норма суточного потребления", message: "Замените вашу норму суточного потребления новой.", preferredStyle: .alert)
-        let confirmAction = UIAlertAction(title: "Изменить", style: .default) { (_) in
-            if let txtField = alertController.textFields?.first, let text = txtField.text {
-                
-                UserDefaults.standard.removeObject(forKey: "goal")
-                UserDefaults.standard.set(text, forKey: "goal")
-                print("Text==>" + text)
-                
-            }
-        }
-        let cancelAction = UIAlertAction(title: "Отмена", style: .cancel) { (_) in }
-        alertController.addTextField { (textField) in
-            let goal: Int = UserDefaults.standard.integer(forKey: "goal")
-            textField.textAlignment = .center
-            textField.keyboardType = .numberPad
-            textField.placeholder = "\(goal)"
-        }
-        alertController.addAction(confirmAction)
-        alertController.addAction(cancelAction)
-        self.present(alertController, animated: true, completion: nil)
-    }
-    
     override func viewDidLoad() {
         
         super.viewDidLoad()
@@ -56,7 +33,7 @@ class SettingsVC: FormViewController {
             <<< LabelRow(){
                 $0.title = "Мое ежедневное потребление"
             }.onCellSelection {_,_ in
-                self.showAlertWithTextField()
+                self.navigationController?.pushViewController(WeightVC(), animated: true)
             }
             <<< LabelRow(){
                 $0.title = "Калькулятор воды"
