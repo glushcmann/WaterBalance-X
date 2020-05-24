@@ -44,7 +44,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if launchedBefore {
             window?.rootViewController = MainVC(collectionViewLayout: layout)
         } else {
-            window?.rootViewController = UINavigationController(rootViewController: OpeningVc())
+            window?.rootViewController = UINavigationController(rootViewController: OpeningVC())
         }
        
         registerForPushNotifications()

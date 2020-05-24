@@ -17,7 +17,6 @@ class SetupNotificationsVC: FormViewController {
         
         super.viewDidLoad()
         navigationItem.title = "Последний шаг, напоминания"
-        view.backgroundColor = .systemBackground
         
         dateFormatter.dateFormat = "HH:mm"
         let dateWakeup: Date? = dateFormatter.date(from: "10:00")

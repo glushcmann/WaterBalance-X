@@ -14,7 +14,7 @@ class SetupWeightVC: FormViewController {
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        navigationItem.title = "Вес"
+        navigationItem.title = "Введите вес"
         self.navigationController?.navigationBar.isHidden = false
         self.navigationController?.navigationBar.prefersLargeTitles = true
 
@@ -29,7 +29,7 @@ class SetupWeightVC: FormViewController {
             +++ Section("Ваш вес")
                 <<< IntRow(){
                     $0.title = "Вес:"
-                    $0.placeholder = "введите ваш вес здесь"
+                    $0.placeholder = "введите здесь"
                     $0.add(ruleSet: rules)
                     $0.validationOptions = .validatesOnChange
                 }.onChange({

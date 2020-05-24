@@ -1,5 +1,5 @@
 //
-//  OpeningVC.swift
+//  SecondOpeningVC.swift
 //  WaterBalance X
 //
 //  Created by Никита on 24.05.2020.
@@ -9,12 +9,11 @@
 import UIKit
 import Lottie
 
-class OpeningVC: UIViewController {
+class SecondOpeningVC: UIViewController {
     
     let upperLabel: UILabel = {
         let label = UILabel()
-        label.text = "Следите за количеством выпитой воды"
-        label.numberOfLines = 2
+        label.text = "Получайте напоминания"
         label.textAlignment = .center
         label.textColor = .systemBlue
         label.font = UIFont.boldSystemFont(ofSize: 30)
@@ -23,13 +22,13 @@ class OpeningVC: UIViewController {
     
     let animationView: AnimationView = {
         let view = AnimationView()
-        view.animation = Animation.named("water-glass")
+        view.animation = Animation.named("notification-bell")
         return view
     }()
     
     let bottomLabel: UILabel = {
         let label = UILabel()
-        label.text = "Ваш прогресс будет отображаться на главном экране"
+        label.text = "Можно настроить расопорядок дня и интервал напоминаний"
         label.numberOfLines = 2
         label.textAlignment = .center
         label.textColor = .systemBlue
@@ -48,7 +47,7 @@ class OpeningVC: UIViewController {
     }()
     
     @objc func buttonTapped() {
-        self.navigationController?.pushViewController(SecondOpeningVC(), animated: true)
+        self.navigationController?.pushViewController(SetupWeightVC(), animated: true)
     }
     
     func setupViews() {

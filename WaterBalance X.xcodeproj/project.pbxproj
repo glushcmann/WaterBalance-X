@@ -19,12 +19,14 @@
 		1150729124757244004D7760 /* ConstraintsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1150729024757244004D7760 /* ConstraintsExtension.swift */; };
 		1150729324757A23004D7760 /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1150729224757A23004D7760 /* SettingsVC.swift */; };
 		1150729624758A72004D7760 /* CalcVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1150729524758A72004D7760 /* CalcVC.swift */; };
+		117F8F20247AFB61006D86BA /* SecondOpeningVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117F8F1F247AFB61006D86BA /* SecondOpeningVC.swift */; };
 		11A2A175247995CC00014C1E /* WeightVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A2A174247995CC00014C1E /* WeightVC.swift */; };
 		11C7F84024770224004B1A9B /* CapacityVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11C7F83F24770224004B1A9B /* CapacityVC.swift */; };
 		11F21E1924756F0E005C652A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F21E1824756F0E005C652A /* AppDelegate.swift */; };
 		11F21E1D24756F0E005C652A /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F21E1C24756F0E005C652A /* MainVC.swift */; };
 		11F21E2224756F17005C652A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 11F21E2124756F17005C652A /* Assets.xcassets */; };
 		11F21E2524756F17005C652A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 11F21E2324756F17005C652A /* LaunchScreen.storyboard */; };
+		11F44354247B0FB000A474F4 /* notification-bell.json in Resources */ = {isa = PBXBuildFile; fileRef = 11F44353247B0FB000A474F4 /* notification-bell.json */; };
 		3CBE348FA99E22BE74764657 /* Pods_WaterBalance_X.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B4373112086AA365BEA7D78 /* Pods_WaterBalance_X.framework */; };
 /* End PBXBuildFile section */
 
@@ -42,6 +44,7 @@
 		1150729024757244004D7760 /* ConstraintsExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstraintsExtension.swift; sourceTree = "<group>"; };
 		1150729224757A23004D7760 /* SettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
 		1150729524758A72004D7760 /* CalcVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalcVC.swift; sourceTree = "<group>"; };
+		117F8F1F247AFB61006D86BA /* SecondOpeningVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondOpeningVC.swift; sourceTree = "<group>"; };
 		11A2A174247995CC00014C1E /* WeightVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightVC.swift; sourceTree = "<group>"; };
 		11C7F83F24770224004B1A9B /* CapacityVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CapacityVC.swift; sourceTree = "<group>"; };
 		11F21E1524756F0E005C652A /* WaterBalance X.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "WaterBalance X.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -50,6 +53,7 @@
 		11F21E2124756F17005C652A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		11F21E2424756F17005C652A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		11F21E2624756F17005C652A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		11F44353247B0FB000A474F4 /* notification-bell.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "notification-bell.json"; sourceTree = "<group>"; };
 		3B4373112086AA365BEA7D78 /* Pods_WaterBalance_X.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WaterBalance_X.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E4D9113ABFC1EF01F7FDB09 /* Pods-WaterBalance X.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WaterBalance X.debug.xcconfig"; path = "Target Support Files/Pods-WaterBalance X/Pods-WaterBalance X.debug.xcconfig"; sourceTree = "<group>"; };
 		69F98E5F81DF91BC5E915051 /* Pods-WaterBalance X.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WaterBalance X.release.xcconfig"; path = "Target Support Files/Pods-WaterBalance X/Pods-WaterBalance X.release.xcconfig"; sourceTree = "<group>"; };
@@ -87,6 +91,7 @@
 		1114DE1A247AE61B004AADE8 /* Animations */ = {
 			isa = PBXGroup;
 			children = (
+				11F44353247B0FB000A474F4 /* notification-bell.json */,
 				1114DE1B247AE67E004AADE8 /* water-glass.json */,
 			);
 			path = Animations;
@@ -114,6 +119,7 @@
 			children = (
 				1114DE1A247AE61B004AADE8 /* Animations */,
 				1114DE1D247AE6C2004AADE8 /* OpeningVC.swift */,
+				117F8F1F247AFB61006D86BA /* SecondOpeningVC.swift */,
 				112471F22477166C007E1C4E /* SetupWeightVC.swift */,
 				112471F424771CA3007E1C4E /* PersonalGoalVC.swift */,
 				112471F624771EAF007E1C4E /* SetupNotificationsVC.swift */,
@@ -247,6 +253,7 @@
 			files = (
 				11F21E2524756F17005C652A /* LaunchScreen.storyboard in Resources */,
 				11F21E2224756F17005C652A /* Assets.xcassets in Resources */,
+				11F44354247B0FB000A474F4 /* notification-bell.json in Resources */,
 				1114DE1C247AE67F004AADE8 /* water-glass.json in Resources */,
 				1104A3D424769F0A00703BAD /* Default-568h@2x.png in Resources */,
 			);
@@ -308,6 +315,7 @@
 				11C7F84024770224004B1A9B /* CapacityVC.swift in Sources */,
 				1114DE1E247AE6C2004AADE8 /* OpeningVC.swift in Sources */,
 				112471F524771CA3007E1C4E /* PersonalGoalVC.swift in Sources */,
+				117F8F20247AFB61006D86BA /* SecondOpeningVC.swift in Sources */,
 				112471F724771EAF007E1C4E /* SetupNotificationsVC.swift in Sources */,
 				1150729324757A23004D7760 /* SettingsVC.swift in Sources */,
 				11F21E1D24756F0E005C652A /* MainVC.swift in Sources */,

@@ -22,8 +22,7 @@ class PersonalGoalVC: FormViewController {
         UserDefaults.standard.removeObject(forKey: "goal")
         UserDefaults.standard.set(goal, forKey: "goal")
         
-        navigationItem.title = "Количество воды"
-        view.backgroundColor = .systemBackground
+        navigationItem.title = "Ваша рекомендация"
         
         
         form

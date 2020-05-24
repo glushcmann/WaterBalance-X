@@ -92,7 +92,8 @@ class MainVC: UICollectionViewController, UICollectionViewDelegateFlowLayout, UI
         collectionView.backgroundColor = .systemBackground
         setupViews()
         
-        UserDefaults.standard.set(true, forKey: "hasLaunched")
+        //MARK: dont forget to uncomment this line
+//        UserDefaults.standard.set(true, forKey: "hasLaunched")
     }
 
 
