@@ -14,9 +14,7 @@ class SetupWeightVC: FormViewController {
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        navigationItem.title = "Введите вес"
-        self.navigationController?.navigationBar.isHidden = false
-        self.navigationController?.navigationBar.prefersLargeTitles = true
+        self.navigationController?.navigationBar.isHidden = true
 
         var rules = RuleSet<Int>()
         let rule = RuleClosure<Int> { rowValue in

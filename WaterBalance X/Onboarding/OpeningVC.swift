@@ -17,7 +17,7 @@ class OpeningVC: UIViewController {
         label.numberOfLines = 2
         label.textAlignment = .center
         label.textColor = .systemBlue
-        label.font = UIFont.boldSystemFont(ofSize: 30)
+        label.font = UIFont.systemFont(ofSize: 28)
         return label
     }()
     
@@ -33,7 +33,7 @@ class OpeningVC: UIViewController {
         label.numberOfLines = 2
         label.textAlignment = .center
         label.textColor = .systemBlue
-        label.font = UIFont.boldSystemFont(ofSize: 20)
+        label.font = UIFont.systemFont(ofSize: 20)
         return label
     }()
     
@@ -41,7 +41,7 @@ class OpeningVC: UIViewController {
         let button = UIButton()
         button.setTitle("Дальше", for: .normal)
         button.backgroundColor = .systemBlue
-        button.layer.cornerRadius = 30
+        button.layer.cornerRadius = 15
         button.setTitleColor(.white, for: .normal)
         button.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
         return button
@@ -63,8 +63,7 @@ class OpeningVC: UIViewController {
         addConstraintWithFormat("H:|-20-[v0]-20-|", views: bottomLabel)
         addConstraintWithFormat("H:|-40-[v0]-40-|", views: button)
         
-        addConstraintWithFormat("V:|-100-[v0(100)]-80-[v1(300)]", views: upperLabel, animationView)
-        addConstraintWithFormat("V:[v0(100)]-40-[v1(60)]-50-|", views: bottomLabel, button)
+        addConstraintWithFormat("V:|-60-[v0(100)]-20-[v1]-20-[v2(100)]-40-[v3(60)]-50-|", views: upperLabel, animationView, bottomLabel, button)
         
     }
     

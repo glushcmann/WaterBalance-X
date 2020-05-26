@@ -22,9 +22,6 @@ class PersonalGoalVC: FormViewController {
         UserDefaults.standard.removeObject(forKey: "goal")
         UserDefaults.standard.set(goal, forKey: "goal")
         
-        navigationItem.title = "Ваша рекомендация"
-        
-        
         form
             +++ Section("Рекомендуемый объем воды")
                 <<< ButtonRow(){

@@ -16,7 +16,6 @@ class SetupNotificationsVC: FormViewController {
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        navigationItem.title = "Последний шаг, напоминания"
         
         dateFormatter.dateFormat = "HH:mm"
         let dateWakeup: Date? = dateFormatter.date(from: "10:00")
@@ -24,7 +23,7 @@ class SetupNotificationsVC: FormViewController {
         let dateInterval: Date? = dateFormatter.date(from: "02:00")
         
         form
-            +++ Section()
+            +++ Section("Последний шаг. Настройте напоминания")
                 <<< TimeRow(){
                     $0.title = "Я просыпаюсь в"
                     $0.value = dateWakeup
