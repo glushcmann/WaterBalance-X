@@ -47,7 +47,7 @@ class SecondOpeningVC: UIViewController {
     }()
     
     @objc func buttonTapped() {
-        self.navigationController?.pushViewController(SetupWeightVC(), animated: true)
+        self.navigationController?.pushViewController(SetupWeightVC(style: .insetGrouped), animated: true)
     }
     
     func setupViews() {
@@ -60,9 +60,9 @@ class SecondOpeningVC: UIViewController {
         addConstraintWithFormat("H:|-20-[v0]-20-|", views: upperLabel)
         addConstraintWithFormat("H:|-20-[v0]-20-|", views: animationView)
         addConstraintWithFormat("H:|-20-[v0]-20-|", views: bottomLabel)
-        addConstraintWithFormat("H:|-40-[v0]-40-|", views: button)
+        addConstraintWithFormat("H:|-35-[v0]-35-|", views: button)
         
-         addConstraintWithFormat("V:|-60-[v0(100)]-20-[v1]-20-[v2(100)]-40-[v3(60)]-50-|", views: upperLabel, animationView, bottomLabel, button)
+         addConstraintWithFormat("V:|-60-[v0(100)]-20-[v1]-20-[v2(100)]-40-[v3(50)]-50-|", views: upperLabel, animationView, bottomLabel, button)
         
     }
     
@@ -71,12 +71,15 @@ class SecondOpeningVC: UIViewController {
         animationView.loopMode = .loop
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        startAnimation()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.isHidden = true
         view.backgroundColor = .white
         setupViews()
-        startAnimation()
     }
     
 }

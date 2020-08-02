@@ -83,7 +83,7 @@ class MainVC: UICollectionViewController, UICollectionViewDelegateFlowLayout, UI
         addConstraintWithFormat("H:|-20-[v0(30)]", views: notifyButton)
         
         addConstraintWithFormat("V:|-150-[v0(50)]-10-[v1(30)]", views: upperLabel, goalLabel)
-        addConstraintWithFormat("V:[v0(60)]-70-[v1(30)]-40-|", views: addButton, settingsButton)
+        addConstraintWithFormat("V:[v0(50)]-70-[v1(30)]-40-|", views: addButton, settingsButton)
         addConstraintWithFormat("V:[v0(30)]-40-|", views: notifyButton)
     }
 

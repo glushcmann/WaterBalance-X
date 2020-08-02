@@ -7,42 +7,80 @@
 //
 
 import UIKit
-import Eureka
 
-class SetupWeightVC: FormViewController {
+class SetupWeightVC: UITableViewController {
+    
+    private let cellID = "cellID"
+    private let textFieldCellID = "textFieldCellID"
+    
+    let headerTitle = "Ваш вес"
+    let footerTitle = "Сообщите нам ваш вес, он необходим для того, чтобы предложить подходящее для вас количество воды в день."
     
     override func viewDidLoad() {
-        
         super.viewDidLoad()
-        self.navigationController?.navigationBar.isHidden = true
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellID)
+    }
+    
+}
 
-        var rules = RuleSet<Int>()
-        let rule = RuleClosure<Int> { rowValue in
-            return (rowValue == nil) ? ValidationError(msg: "Field required!") : nil
-        }
-        rules.add(rule: rule)
-        rules.add(rule: RuleSmallerThan(max: 300))
+extension SetupWeightVC {
+    
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return 2
+    }
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        form
-            +++ Section("Ваш вес")
-                <<< IntRow(){
-                    $0.title = "Вес:"
-                    $0.placeholder = "введите здесь"
-                    $0.add(ruleSet: rules)
-                    $0.validationOptions = .validatesOnChange
-                }.onChange({
-                    UserDefaults.standard.removeObject(forKey: "weight")
-                    UserDefaults.standard.set($0.value, forKey: "weight")
-                })
+        var cell = self.tableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath)
+        cell = UITableViewCell.init(style: .value1, reuseIdentifier: cellID)
+        
+        if indexPath.section == 0 {
+            cell.textLabel?.text = "Введите вес:"
+            cell.detailTextLabel?.text = "1000"
+        } else {
+            cell.textLabel?.text = "Далее"
+            cell.textLabel?.textColor = .white
+            cell.textLabel?.textAlignment = .center
+            cell.backgroundColor = .systemBlue
+        }
+        
+        return cell
+        
+    }
+    
+    override func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
+        
+        var title: String?
+        
+        if section == 1 {
+            title = footerTitle
+        }
+        
+        return title
+    }
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        
+        var title: String?
+        
+        if section == 0 {
+            title = headerTitle
+        }
+        
+        return title
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        if indexPath.section == 0 {
             
-            +++ Section(footer: "Сообщите нам ваш вес, он необходим для того, чтобы предложить подходящее для вас количество воды в день.")
-                <<< ButtonRow(){
-                    $0.title = "Далее"
-                }.onCellSelection({_,_ in
-                    if ( UserDefaults.standard.integer(forKey: "weight") > 0 && UserDefaults.standard.integer(forKey: "weight") < 300) {
-                        self.navigationController?.pushViewController(PersonalGoalVC(), animated: true)
-                    }
-                })
+        } else {
+            self.navigationController?.pushViewController(PersonalGoalVC(style: .insetGrouped), animated: true)
+        }
     }
     
 }

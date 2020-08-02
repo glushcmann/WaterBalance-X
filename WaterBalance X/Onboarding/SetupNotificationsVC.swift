@@ -7,55 +7,86 @@
 //
 
 import UIKit
-import Eureka
 
-class SetupNotificationsVC: FormViewController {
+class SetupNotificationsVC: UITableViewController {
     
-    let dateFormatter = DateFormatter()
+    private let cellID = "cellID"
+    
+    let headerTitle = "Последний шаг. Настройте напоминания"
     
     override func viewDidLoad() {
-        
         super.viewDidLoad()
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellID)
+    }
+    
+}
+
+extension SetupNotificationsVC {
+    
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return 2
+    }
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        dateFormatter.dateFormat = "HH:mm"
-        let dateWakeup: Date? = dateFormatter.date(from: "10:00")
-        let dateAsleep: Date? = dateFormatter.date(from: "00:00")
-        let dateInterval: Date? = dateFormatter.date(from: "02:00")
+        if section == 0 {
+             return 3
+         } else {
+             return 1
+         }
         
-        form
-            +++ Section("Последний шаг. Настройте напоминания")
-                <<< TimeRow(){
-                    $0.title = "Я просыпаюсь в"
-                    $0.value = dateWakeup
-                }.onChange({value in
-                    UserDefaults.standard.removeObject(forKey: "wakeup")
-                    UserDefaults.standard.setValue(value, forKey: "wakeup")
-                })
-                <<< TimeRow(){
-                    $0.title = "Я ложусь спать в"
-                    $0.value = dateAsleep
-                }.onChange({value in
-                    UserDefaults.standard.removeObject(forKey: "asleep")
-                    UserDefaults.standard.setValue(value, forKey: "asleep")
-                })
-                <<< TimeRow(){
-                    $0.title = "Интервал между уведомлениями"
-                    $0.value = dateInterval
-                }.onChange({value in
-                    UserDefaults.standard.removeObject(forKey: "interval")
-                    UserDefaults.standard.setValue(value, forKey: "interval")
-                })
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        var cell = self.tableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath)
+        cell = UITableViewCell.init(style: .value1, reuseIdentifier: cellID)
+        
+        if indexPath.section == 0 {
             
-            +++ Section()
-                <<< ButtonRow(){
-                    $0.title = "Готово"
-                }.onCellSelection({_,_ in
-                    
-                    let layout = UICollectionViewFlowLayout()
-                    let appDelegate = UIApplication.shared.delegate as! AppDelegate
-                    appDelegate.window?.rootViewController = MainVC(collectionViewLayout: layout)
-                    
-                })
+            switch indexPath.row {
+            case 0:
+                cell.textLabel?.text = "Я просыпаюсь в:"
+                cell.detailTextLabel?.text = "10:00"
+            case 1:
+                cell.textLabel?.text = "Я ложусь спать в:"
+                cell.detailTextLabel?.text = "22:00"
+            case 2:
+                cell.textLabel?.text = "Интервал между уведомлениями:"
+                cell.detailTextLabel?.text = "2:00"
+            default:
+                break
+            }
+            
+        } else {
+            cell.textLabel?.text = "Готово"
+            cell.textLabel?.textColor = .white
+            cell.textLabel?.textAlignment = .center
+            cell.backgroundColor = .systemBlue
+        }
+        
+        return cell
+        
+    }
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        
+        var title: String?
+        
+        if section == 0 {
+            title = headerTitle
+        }
+        
+        return title
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        if indexPath.section == 0 {
+            return
+        } else {
+            self.navigationController?.pushViewController(MainVC(collectionViewLayout: UICollectionViewFlowLayout()), animated: true)
+        }
     }
     
 }

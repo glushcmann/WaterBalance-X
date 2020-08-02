@@ -20,6 +20,7 @@
 		1150729324757A23004D7760 /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1150729224757A23004D7760 /* SettingsVC.swift */; };
 		1150729624758A72004D7760 /* CalcVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1150729524758A72004D7760 /* CalcVC.swift */; };
 		117F8F20247AFB61006D86BA /* SecondOpeningVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117F8F1F247AFB61006D86BA /* SecondOpeningVC.swift */; };
+		118D4C0A24D7451900DAD7DB /* TextFieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118D4C0924D7451900DAD7DB /* TextFieldCell.swift */; };
 		11A2A175247995CC00014C1E /* WeightVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A2A174247995CC00014C1E /* WeightVC.swift */; };
 		11C7F84024770224004B1A9B /* CapacityVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11C7F83F24770224004B1A9B /* CapacityVC.swift */; };
 		11F21E1924756F0E005C652A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F21E1824756F0E005C652A /* AppDelegate.swift */; };
@@ -45,6 +46,7 @@
 		1150729224757A23004D7760 /* SettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
 		1150729524758A72004D7760 /* CalcVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalcVC.swift; sourceTree = "<group>"; };
 		117F8F1F247AFB61006D86BA /* SecondOpeningVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondOpeningVC.swift; sourceTree = "<group>"; };
+		118D4C0924D7451900DAD7DB /* TextFieldCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldCell.swift; sourceTree = "<group>"; };
 		11A2A174247995CC00014C1E /* WeightVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightVC.swift; sourceTree = "<group>"; };
 		11C7F83F24770224004B1A9B /* CapacityVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CapacityVC.swift; sourceTree = "<group>"; };
 		11F21E1524756F0E005C652A /* WaterBalance X.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "WaterBalance X.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -138,6 +140,14 @@
 			path = Settings;
 			sourceTree = "<group>";
 		};
+		118D4C0B24D7451F00DAD7DB /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				118D4C0924D7451900DAD7DB /* TextFieldCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		11F21E0C24756F0E005C652A = {
 			isa = PBXGroup;
 			children = (
@@ -167,6 +177,7 @@
 				1150729424758A57004D7760 /* Settings */,
 				1104A3D52476A3C900703BAD /* Notifications */,
 				112471EE2477158C007E1C4E /* Model */,
+				118D4C0B24D7451F00DAD7DB /* Cells */,
 				1104A3D024769EB400703BAD /* Support Files */,
 				1150729024757244004D7760 /* ConstraintsExtension.swift */,
 				11F21E2624756F17005C652A /* Info.plist */,
@@ -315,6 +326,7 @@
 				11C7F84024770224004B1A9B /* CapacityVC.swift in Sources */,
 				1114DE1E247AE6C2004AADE8 /* OpeningVC.swift in Sources */,
 				112471F524771CA3007E1C4E /* PersonalGoalVC.swift in Sources */,
+				118D4C0A24D7451900DAD7DB /* TextFieldCell.swift in Sources */,
 				117F8F20247AFB61006D86BA /* SecondOpeningVC.swift in Sources */,
 				112471F724771EAF007E1C4E /* SetupNotificationsVC.swift in Sources */,
 				1150729324757A23004D7760 /* SettingsVC.swift in Sources */,
