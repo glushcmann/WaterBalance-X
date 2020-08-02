@@ -59,7 +59,8 @@ class CapacityVC: UITableViewController, PanModalPresentable {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellID)
+        self.tableView.showsVerticalScrollIndicator = false
+        self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellID)
     }
     
 }

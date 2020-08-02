@@ -80,7 +80,7 @@ class OpeningVC: UIViewController {
         
         super.viewDidLoad()
         self.navigationController?.navigationBar.isHidden = true
-        self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
+//        self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
         view.backgroundColor = .white
         setupViews()
         
