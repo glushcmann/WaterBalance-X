@@ -40,7 +40,7 @@ class SecondOpeningVC: UIViewController {
         let button = UIButton()
         button.setTitle("Дальше", for: .normal)
         button.backgroundColor = .systemBlue
-        button.layer.cornerRadius = 15
+        button.layer.cornerRadius = 10
         button.setTitleColor(.white, for: .normal)
         button.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
         return button

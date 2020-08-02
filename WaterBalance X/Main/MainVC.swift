@@ -35,7 +35,7 @@ class MainVC: UICollectionViewController, UICollectionViewDelegateFlowLayout, UI
         button.setTitle("Добавить", for: .normal)
         button.setTitleColor(.white, for: .normal)
         button.backgroundColor = .systemBlue
-        button.layer.cornerRadius = 15
+        button.layer.cornerRadius = 10
         button.addTarget(self, action: #selector(addButtonTapped), for: .touchUpInside)
         return button
     }()
@@ -57,7 +57,7 @@ class MainVC: UICollectionViewController, UICollectionViewDelegateFlowLayout, UI
     }()
     
     @objc func addButtonTapped() {
-        self.presentPanModal(CapacityVC())
+        self.presentPanModal(CapacityVC(style: .insetGrouped))
     }
     
     @objc func settingsButtonTapped() {

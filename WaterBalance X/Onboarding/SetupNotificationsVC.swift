@@ -11,12 +11,14 @@ import UIKit
 class SetupNotificationsVC: UITableViewController {
     
     private let cellID = "cellID"
+    private let defaultCellID = "defaultCellID"
     
     let headerTitle = "Последний шаг. Настройте напоминания"
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellID)
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: defaultCellID)
     }
     
 }
@@ -39,6 +41,7 @@ extension SetupNotificationsVC {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
+        let defaultCell = self.tableView.dequeueReusableCell(withIdentifier: defaultCellID, for: indexPath)
         var cell = self.tableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath)
         cell = UITableViewCell.init(style: .value1, reuseIdentifier: cellID)
         
@@ -57,15 +60,17 @@ extension SetupNotificationsVC {
             default:
                 break
             }
+            return cell
             
         } else {
-            cell.textLabel?.text = "Готово"
-            cell.textLabel?.textColor = .white
-            cell.textLabel?.textAlignment = .center
-            cell.backgroundColor = .systemBlue
+            
+            defaultCell.textLabel?.text = "Готово"
+            defaultCell.textLabel?.textColor = .white
+            defaultCell.textLabel?.textAlignment = .center
+            defaultCell.backgroundColor = .systemBlue
+            return defaultCell
+            
         }
-        
-        return cell
         
     }
     

@@ -11,7 +11,7 @@ import UIKit
 class SetupWeightVC: UITableViewController {
     
     private let cellID = "cellID"
-    private let textFieldCellID = "textFieldCellID"
+    private let defaultCellID = "defaultCellID"
     
     let headerTitle = "Ваш вес"
     let footerTitle = "Сообщите нам ваш вес, он необходим для того, чтобы предложить подходящее для вас количество воды в день."
@@ -19,6 +19,7 @@ class SetupWeightVC: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellID)
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: defaultCellID)
     }
     
 }
@@ -35,20 +36,26 @@ extension SetupWeightVC {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
+        let defaultCell = self.tableView.dequeueReusableCell(withIdentifier: defaultCellID, for: indexPath)
         var cell = self.tableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath)
         cell = UITableViewCell.init(style: .value1, reuseIdentifier: cellID)
         
+        
         if indexPath.section == 0 {
+            
             cell.textLabel?.text = "Введите вес:"
             cell.detailTextLabel?.text = "1000"
+            return cell
+            
         } else {
-            cell.textLabel?.text = "Далее"
-            cell.textLabel?.textColor = .white
-            cell.textLabel?.textAlignment = .center
-            cell.backgroundColor = .systemBlue
+            
+            defaultCell.textLabel?.text = "Далее"
+            defaultCell.textLabel?.textColor = .white
+            defaultCell.textLabel?.textAlignment = .center
+            defaultCell.backgroundColor = .systemBlue
+            return defaultCell
+            
         }
-        
-        return cell
         
     }
     
