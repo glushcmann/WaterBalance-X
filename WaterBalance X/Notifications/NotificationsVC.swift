@@ -17,7 +17,7 @@ class NotificationsVC: UITableViewController {
                 ["Звук оповещения"]
     ]
     
-    let footer = ["Звук оповещения"]
+    let footer = ["Среднее количество воды для каждого приема пищи: 200 мл"]
 
     let switchView: UISwitch = {
         let sw = UISwitch()

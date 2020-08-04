@@ -19,7 +19,7 @@
 		1150729124757244004D7760 /* ConstraintsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1150729024757244004D7760 /* ConstraintsExtension.swift */; };
 		1150729324757A23004D7760 /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1150729224757A23004D7760 /* SettingsVC.swift */; };
 		1150729624758A72004D7760 /* CalcVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1150729524758A72004D7760 /* CalcVC.swift */; };
-		117287BF24D9FBBF00DF1A8B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 117287BE24D9FBBF00DF1A8B /* Assets.xcassets */; };
+		117287C124DA064800DF1A8B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 117287C024DA064800DF1A8B /* Assets.xcassets */; };
 		117F8F20247AFB61006D86BA /* SecondOpeningVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117F8F1F247AFB61006D86BA /* SecondOpeningVC.swift */; };
 		118D4C0A24D7451900DAD7DB /* TextFieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118D4C0924D7451900DAD7DB /* TextFieldCell.swift */; };
 		11A2A175247995CC00014C1E /* WeightVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A2A174247995CC00014C1E /* WeightVC.swift */; };
@@ -45,7 +45,7 @@
 		1150729024757244004D7760 /* ConstraintsExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstraintsExtension.swift; sourceTree = "<group>"; };
 		1150729224757A23004D7760 /* SettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
 		1150729524758A72004D7760 /* CalcVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalcVC.swift; sourceTree = "<group>"; };
-		117287BE24D9FBBF00DF1A8B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../../../../../AppIcons/Assets.xcassets; sourceTree = "<group>"; };
+		117287C024DA064800DF1A8B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		117F8F1F247AFB61006D86BA /* SecondOpeningVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondOpeningVC.swift; sourceTree = "<group>"; };
 		118D4C0924D7451900DAD7DB /* TextFieldCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldCell.swift; sourceTree = "<group>"; };
 		11A2A174247995CC00014C1E /* WeightVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightVC.swift; sourceTree = "<group>"; };
@@ -76,7 +76,7 @@
 		1104A3D024769EB400703BAD /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				117287BE24D9FBBF00DF1A8B /* Assets.xcassets */,
+				117287C024DA064800DF1A8B /* Assets.xcassets */,
 				11F21E2324756F17005C652A /* LaunchScreen.storyboard */,
 			);
 			path = "Support Files";
@@ -265,8 +265,8 @@
 				11F21E2524756F17005C652A /* LaunchScreen.storyboard in Resources */,
 				11F44354247B0FB000A474F4 /* notification-bell.json in Resources */,
 				1114DE1C247AE67F004AADE8 /* water-glass.json in Resources */,
-				117287BF24D9FBBF00DF1A8B /* Assets.xcassets in Resources */,
 				1104A3D424769F0A00703BAD /* Default-568h@2x.png in Resources */,
+				117287C124DA064800DF1A8B /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

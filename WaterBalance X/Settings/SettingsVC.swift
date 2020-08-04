@@ -140,12 +140,17 @@ extension SettingsVC {
         
         switch indexPath.section {
         case 1:
-            
             if indexPath.row == 0 {
                 let vc = WeightVC(style: .insetGrouped)
                 self.show(vc, sender: self)
             } else {
                 let vc = CalcVC(style: .insetGrouped)
+                self.show(vc, sender: self)
+            }
+        case 2:
+            if indexPath.row == 0 {
+                let vc = UnitsVC(style: .insetGrouped)
+                navigationItem.backBarButtonItem = UIBarButtonItem(title: "Настройки", style: .plain, target: self, action: #selector(close))
                 self.show(vc, sender: self)
             }
         default:
