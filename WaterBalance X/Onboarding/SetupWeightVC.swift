@@ -18,8 +18,8 @@ class SetupWeightVC: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellID)
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: defaultCellID)
+        self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellID)
+        self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: defaultCellID)
     }
     
 }

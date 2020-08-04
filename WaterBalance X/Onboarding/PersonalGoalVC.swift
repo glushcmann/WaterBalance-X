@@ -17,7 +17,7 @@ class PersonalGoalVC: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellID)
+        self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellID)
     }
     
 }

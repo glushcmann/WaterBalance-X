@@ -7,44 +7,7 @@
 //
 
 import UIKit
-//import Eureka
 import PanModal
-//
-//class CapacityVC: FormViewController, PanModalPresentable {
-//
-//    var panScrollable: UIScrollView?
-//    var longFormHeight: PanModalHeight {
-//        return .maxHeightWithTopInset(450)
-//    }
-//
-//    override func viewDidLoad() {
-//
-//        super.viewDidLoad()
-//
-//        form
-//            +++ Section("Добавьте обьем выпитой воды")
-//                <<< LabelRow(){
-//                    $0.title = "100"
-//                }
-//                <<< LabelRow(){
-//                    $0.title = "200"
-//                }
-//                <<< LabelRow(){
-//                    $0.title = "300"
-//                }
-//                <<< LabelRow(){
-//                    $0.title = "400"
-//                }
-//                <<< LabelRow(){
-//                    $0.title = "500"
-//                }
-//                <<< LabelRow(){
-//                    $0.title = "600"
-//                }
-//
-//    }
-//
-//}
 
 class CapacityVC: UITableViewController, PanModalPresentable {
     

@@ -61,11 +61,15 @@ class MainVC: UICollectionViewController, UICollectionViewDelegateFlowLayout, UI
     }
     
     @objc func settingsButtonTapped() {
-        self.present(UINavigationController(rootViewController: SettingsVC()), animated: true, completion: nil)
+//        let vc = SettingsVC()
+        let vc = SettingsVC(style: .insetGrouped)
+//        self.navigationController?.pushViewController(vc, animated: true)
+        self.present(UINavigationController(rootViewController: vc), animated: true, completion: nil)
     }
     
     @objc func notifyButtonTapped() {
-        self.present(UINavigationController(rootViewController: NotificationsVC()), animated: true, completion: nil)
+        let vc = NotificationsVC(style: .insetGrouped)
+        self.present(UINavigationController(rootViewController: vc), animated: true, completion: nil)
     }
     
     func setupViews() {

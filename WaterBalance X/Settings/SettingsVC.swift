@@ -7,9 +7,21 @@
 //
 
 import UIKit
-import Eureka
 
-class SettingsVC: FormViewController {
+class SettingsVC: UITableViewController {
+    
+    let cellID = "cellID"
+    
+    var header = ["Моя информация", "Настройки", "Поддержка"]
+    
+    var footer = ["Приложение будет сохранять данные в Apple Health. Узнайте истинный обьем потребляемой Вами воды и связанную с этим статистику."]
+    
+    var data = [["Обновиться до полной версии"],
+                ["Мое ежедневное потребление", "Калькулятор воды"],
+                ["Единицы измерения", "Виджет"],
+                ["Apple Health"],
+                ["Нравится приложение? Оцените его!"]
+    ]
     
     @objc func close() {
         self.dismiss(animated: true, completion: nil)
@@ -18,48 +30,107 @@ class SettingsVC: FormViewController {
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        view.backgroundColor = .systemBackground
+        view.backgroundColor = .systemGroupedBackground
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.title = "Настройки"
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Готово", style: .done, target: self, action: #selector(close))
         
-        form
-        +++ Section()
-            <<< ButtonRow(){
-                $0.title = "Обновиться до полной версии"
-            }
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellID)
+        
+    }
     
-        +++ Section("Моя информация")
-            <<< LabelRow(){
-                $0.title = "Мое ежедневное потребление"
-            }.onCellSelection {_,_ in
-                self.navigationController?.pushViewController(WeightVC(), animated: true)
-            }
-            <<< LabelRow(){
-                $0.title = "Калькулятор воды"
-            }.onCellSelection {_,_ in
-                self.navigationController?.pushViewController(CalcVC(), animated: true)
-            }
+}
+
+extension SettingsVC {
     
-        +++ Section("Настройки")
-            <<< LabelRow(){
-                $0.title = "Единицы измерения"
-            }.onCellSelection {_,_ in
-                self.navigationController?.pushViewController(UnitsVC(), animated: true)
-            }
-            <<< LabelRow(){
-                $0.title = "Виджет"
-            }
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return data.count
+    }
     
-        +++ Section(footer: "Приложение будет сохранять данные в Apple Health. Узнайте истинный обьем потребляемой Вами воды и связанную с этим статистику.")
-            <<< LabelRow(){
-                $0.title = "Apple Health"
-            }
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        var rows = 0
+        
+        if section == 1 || section == 2 {
+            rows = 2
+        } else {
+            rows = 1
+        }
+        
+        return rows
+        
+    }
     
-        +++ Section("Поддержка")
-            <<< LabelRow(){
-                $0.title = "Нравится приложение? Оцените его!"
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        
+        var title: String?
+        
+        switch section {
+        case 1:
+            title = header[0]
+        case 2:
+            title = header[1]
+        case 4:
+            title = header[2]
+        default:
+            title = nil
+        }
+        
+        return title
+        
+    }
+    
+    override func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
+        
+        var text: String?
+        
+        if section == 3 {
+            text = footer[0]
+        } else {
+            text = nil
+        }
+        
+        return text
+        
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = self.tableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath)
+        cell.accessoryType = .disclosureIndicator
+        
+        switch indexPath.section {
+        case 0:
+            cell.textLabel?.text = data[0][0]
+            cell.textLabel?.textColor = .systemBlue
+            cell.textLabel?.textAlignment = .center
+        case 1:
+            switch indexPath.row {
+            case 0:
+                cell.textLabel?.text = data[1][0]
+            case 1:
+                cell.textLabel?.text = data[1][1]
+            default:
+                break
             }
+        case 2:
+            switch indexPath.row {
+            case 0:
+                cell.textLabel?.text = data[2][0]
+            case 1:
+                cell.textLabel?.text = data[2][1]
+            default:
+                break
+            }
+        case 3:
+            cell.textLabel?.text = data[3][0]
+        case 4:
+            cell.textLabel?.text = data[4][0]
+        default:
+            break
+        }
+
+        return cell
 
     }
 }
