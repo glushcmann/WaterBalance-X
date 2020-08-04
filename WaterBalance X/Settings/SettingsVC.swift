@@ -135,4 +135,23 @@ extension SettingsVC {
         return cell
 
     }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        switch indexPath.section {
+        case 1:
+            
+            if indexPath.row == 0 {
+                let vc = WeightVC(style: .insetGrouped)
+                self.show(vc, sender: self)
+            } else {
+                let vc = CalcVC(style: .insetGrouped)
+                self.show(vc, sender: self)
+            }
+        default:
+            break
+        }
+        
+    }
+    
 }

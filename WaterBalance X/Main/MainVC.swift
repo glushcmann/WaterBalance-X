@@ -95,7 +95,7 @@ class MainVC: UICollectionViewController, UICollectionViewDelegateFlowLayout, UI
         setupViews()
         
         //MARK: dont forget to uncomment this line
-//        UserDefaults.standard.set(true, forKey: "hasLaunched")
+        UserDefaults.standard.set(true, forKey: "hasLaunched")
     }
 
 

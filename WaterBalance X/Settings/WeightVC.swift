@@ -7,50 +7,56 @@
 //
 
 import UIKit
-import Eureka
 
-class WeightVC: FormViewController {
+class WeightVC: UITableViewController {
     
-    let weight = UserDefaults.standard.integer(forKey: "weight")
+    let cellID = "cellID"
+    
+//    let textView: UITextField = {
+//        let text = UITextField(frame: .zero)
+//        return text
+//    }()
     
     override func viewDidLoad() {
         
         super.viewDidLoad()
         navigationItem.title = "Вес"
-        view.backgroundColor = .systemBackground
-
-        var rules = RuleSet<Int>()
-        let rule = RuleClosure<Int> { rowValue in
-            return (rowValue == nil) ? ValidationError(msg: "Field required!") : nil
-        }
-        rules.add(rule: rule)
-        rules.add(rule: RuleSmallerThan(max: 300))
+        view.backgroundColor = .systemGroupedBackground
         
-        form
-            +++ Section("Ваш вес")
-                <<< IntRow(){
-                    $0.title = "Вес:"
-                    $0.placeholder = "\(weight)"
-                    $0.add(ruleSet: rules)
-                    $0.validationOptions = .validatesOnChange
-                }.onChange({
-                    let goal = $0.value! * 33
-                    UserDefaults.standard.removeObject(forKey: "weight")
-                    UserDefaults.standard.removeObject(forKey: "goal")
-                    UserDefaults.standard.set($0.value, forKey: "weight")
-                    UserDefaults.standard.set(goal, forKey: "goal")
-                    let vc = MainVC()
-                    vc.goalLabel.text = "\(goal) мл"
-                })
-            
-            +++ Section()
-                <<< ButtonRow(){
-                    $0.title = "Изменить"
-                }.onCellSelection({_,_ in
-                    if ( UserDefaults.standard.integer(forKey: "weight") > 0 && UserDefaults.standard.integer(forKey: "weight") < 300) {
-                        self.navigationController?.popViewController(animated: true)
-                    }
-                })
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellID)
+        
+    }
+    
+}
+
+extension WeightVC {
+    
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return 2
+    }
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = self.tableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath)
+        
+        if indexPath.section == 0 {
+            cell.textLabel?.text = "100 кг"
+            cell.textLabel?.textAlignment = .center
+//            cell.accessoryView = textView
+//            cell.accessoryView?.backgroundColor = .red
+        } else {
+            cell.textLabel?.text = "Изменить"
+            cell.textLabel?.textAlignment = .center
+            cell.textLabel?.textColor = .white
+            cell.backgroundColor = .systemBlue
+        }
+        
+        return cell
+        
     }
     
 }

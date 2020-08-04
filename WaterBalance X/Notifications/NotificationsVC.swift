@@ -18,11 +18,6 @@ class NotificationsVC: UITableViewController {
     ]
     
     let footer = ["Звук оповещения"]
-    
-//    let switchView = UISwitch(frame: .zero)
-//    switchView.setOn(false, animated: true)
-//    switchView.tag = indexPath.row // for detect which row switch Changed
-//    switchView.addTarget(self, action: #selector(self.switchChanged(_:)), for: .valueChanged)
 
     let switchView: UISwitch = {
         let sw = UISwitch()
