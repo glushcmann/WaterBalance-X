@@ -61,9 +61,7 @@ class MainVC: UICollectionViewController, UICollectionViewDelegateFlowLayout, UI
     }
     
     @objc func settingsButtonTapped() {
-//        let vc = SettingsVC()
         let vc = SettingsVC(style: .insetGrouped)
-//        self.navigationController?.pushViewController(vc, animated: true)
         self.present(UINavigationController(rootViewController: vc), animated: true, completion: nil)
     }
     

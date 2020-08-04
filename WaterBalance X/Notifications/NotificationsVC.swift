@@ -18,7 +18,24 @@ class NotificationsVC: UITableViewController {
     ]
     
     let footer = ["Звук оповещения"]
+    
+//    let switchView = UISwitch(frame: .zero)
+//    switchView.setOn(false, animated: true)
+//    switchView.tag = indexPath.row // for detect which row switch Changed
+//    switchView.addTarget(self, action: #selector(self.switchChanged(_:)), for: .valueChanged)
 
+    let switchView: UISwitch = {
+        let sw = UISwitch()
+        sw.setOn(false, animated: true)
+        sw.addTarget(self, action: #selector(switchChanged(_:)), for: .valueChanged)
+        return sw
+    }()
+    
+    @objc func switchChanged(_ sender : UISwitch!){
+          print("table row switch Changed \(sender.tag)")
+          print("The switch is \(sender.isOn ? "ON" : "OFF")")
+    }
+    
     @objc func close() {
         self.dismiss(animated: true, completion: nil)
     }
@@ -73,7 +90,7 @@ extension NotificationsVC {
         switch indexPath.section {
         case 0:
             cell.textLabel?.text = data[0][0]
-            cell.accessoryType = .checkmark
+            cell.accessoryView = switchView
         case 1:
             switch indexPath.row {
             case 0:
@@ -87,6 +104,7 @@ extension NotificationsVC {
             }
         case 2:
             cell.textLabel?.text = data[2][0]
+            cell.accessoryType = .disclosureIndicator
         default:
             break
         }

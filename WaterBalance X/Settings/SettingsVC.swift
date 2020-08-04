@@ -102,8 +102,10 @@ extension SettingsVC {
         switch indexPath.section {
         case 0:
             cell.textLabel?.text = data[0][0]
-            cell.textLabel?.textColor = .systemBlue
+            cell.textLabel?.textColor = .white
             cell.textLabel?.textAlignment = .center
+            cell.backgroundColor = .systemBlue
+            cell.accessoryType = .none
         case 1:
             switch indexPath.row {
             case 0:
