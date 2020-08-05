@@ -14,12 +14,15 @@ class TextLabelCell: UITableViewCell {
         let textField = UITextField()
         textField.text = ""
         textField.textAlignment = .right
+        textField.textColor = .systemGray
+        textField.isUserInteractionEnabled = false
         return textField
     }()
     
     let label: UILabel = {
         let label = UILabel()
         label.text = ""
+        label.font = UIFont.systemFont(ofSize: 16)
         return label
     }()
 
@@ -30,7 +33,7 @@ class TextLabelCell: UITableViewCell {
         contentView.addSubview(textField)
         contentView.addSubview(label)
 
-        addConstraintWithFormat("H:|-20-[v0]-15-[v1]-20-|", views: label, textField)
+        addConstraintWithFormat("H:|-20-[v0]-20-[v1]-20-|", views: label, textField)
         addConstraintWithFormat("V:|-10-[v0]-10-|", views: label)
         addConstraintWithFormat("V:|-10-[v0]-10-|", views: textField)
 

@@ -15,37 +15,48 @@ class SetupNotificationsVC: UITableViewController {
     
     let headerTitle = "Последний шаг. Настройте напоминания"
     
-    let datePicker = UIDatePicker()
-    let toolbar = UIToolbar()
+    var datePicker = UIDatePicker()
+    var toolBar = UIToolbar()
     
-    func showDatePicker(){
-        datePicker.datePickerMode = .date
+    func showDatePicker() {
+        datePicker = UIDatePicker.init()
+        datePicker.backgroundColor = UIColor.white
+
+        datePicker.autoresizingMask = .flexibleWidth
+        datePicker.datePickerMode = .time
+
+        datePicker.addTarget(self, action: #selector(self.dateChanged(_:)), for: .valueChanged)
+        datePicker.frame = CGRect(x: 0.0, y: UIScreen.main.bounds.size.height - 300, width: UIScreen.main.bounds.size.width, height: 300)
+        self.view.addSubview(datePicker)
+
+        toolBar = UIToolbar(frame: CGRect(x: 0, y: UIScreen.main.bounds.size.height - 300, width: UIScreen.main.bounds.size.width, height: 50))
+        toolBar.barStyle = UIBarStyle.default
+        toolBar.items = [UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil), UIBarButtonItem(title: "Готово", style: .done, target: self, action: #selector(self.onDoneButtonClick))]
+        toolBar.sizeToFit()
+        self.view.addSubview(toolBar)
     }
 
-    @objc func donedatePicker(cell: TextFieldCell){
+    @objc func dateChanged(_ sender: UIDatePicker?) {
+        let dateFormatter = DateFormatter()
+        dateFormatter.timeStyle = .medium
 
-        let formatter = DateFormatter()
-        formatter.dateFormat = "h:mm a"
-        formatter.timeStyle = .medium
-        formatter.amSymbol = "утра"
-        formatter.pmSymbol = "вечера"
-        cell.textField.text = formatter.string(from: datePicker.date)
-        self.view.endEditing(true)
-        
+        if let date = sender?.date {
+            print("Picked the date \(dateFormatter.string(from: date))")
+        }
     }
 
-    @objc func cancelDatePicker(){
-       self.view.endEditing(true)
-     }
+    @objc func onDoneButtonClick() {
+        toolBar.removeFromSuperview()
+        datePicker.removeFromSuperview()
+    }
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         self.tableView.register(TextLabelCell.self, forCellReuseIdentifier: cellID)
         self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: defaultCellID)
         
-        datePicker.datePickerMode = .time
     }
-    
 }
 
 extension SetupNotificationsVC {
@@ -73,25 +84,14 @@ extension SetupNotificationsVC {
             
             switch indexPath.row {
             case 0:
-//                cell.textLabel?.text = "Я просыпаюсь в:"
-//                cell.detailTextLabel?.text = "10:00"
                 cell.label.text = "Я просыпаюсь в:"
                 cell.textField.text = "10:00"
-                cell.textField.inputAccessoryView = toolbar
-                cell.textField.inputView = datePicker
-                
-                toolbar.sizeToFit()
-                let doneButton = UIBarButtonItem(title: "Сохранить", style: .plain, target: self, action: #selector(donedatePicker));
-                let spaceButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: nil, action: nil)
-                let cancelButton = UIBarButtonItem(title: "Отменить", style: .plain, target: self, action: #selector(cancelDatePicker));
-
-                toolbar.setItems([doneButton,spaceButton,cancelButton], animated: false)
             case 1:
-                cell.textLabel?.text = "Я ложусь спать в:"
-                cell.detailTextLabel?.text = "22:00"
+                cell.label.text = "Я ложусь спать в:"
+                cell.textField.text = "22:00"
             case 2:
-                cell.textLabel?.text = "Интервал между уведомлениями:"
-                cell.detailTextLabel?.text = "2:00"
+                cell.label.text = "Интервал между уведомлениями:"
+                cell.textField.text = "2:00"
             default:
                 break
             }
@@ -123,7 +123,7 @@ extension SetupNotificationsVC {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         if indexPath.section == 0 {
-            return
+            showDatePicker()
         } else {
             self.navigationController?.pushViewController(MainVC(collectionViewLayout: UICollectionViewFlowLayout()), animated: true)
         }
