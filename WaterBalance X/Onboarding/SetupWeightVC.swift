@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 class SetupWeightVC: UITableViewController {
     
@@ -16,10 +17,25 @@ class SetupWeightVC: UITableViewController {
     let headerTitle = "Ваш вес"
     let footerTitle = "Сообщите нам ваш вес, он необходим для того, чтобы предложить подходящее для вас количество воды в день."
     
+
+    
+    let realm = try! Realm()
+    
+
+    
     override func viewDidLoad() {
+        
         super.viewDidLoad()
-        self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellID)
+        self.tableView.register(TextFieldCell.self, forCellReuseIdentifier: cellID)
         self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: defaultCellID)
+        
+//        let result = realm.objects(User.self)
+        let user = User()
+        user.weight = 80
+        user.goal = user.weight * 40
+        
+//        print(Realm.Configuration.defaultConfiguration.fileURL)
+        
     }
     
 }
@@ -37,14 +53,12 @@ extension SetupWeightVC {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let defaultCell = self.tableView.dequeueReusableCell(withIdentifier: defaultCellID, for: indexPath)
-        var cell = self.tableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath)
-        cell = UITableViewCell.init(style: .value1, reuseIdentifier: cellID)
-        
+        let cell = self.tableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath) as! TextFieldCell
         
         if indexPath.section == 0 {
             
-            cell.textLabel?.text = "Введите вес:"
-            cell.detailTextLabel?.text = "1000"
+            cell.textField.text = "fddf"
+            
             return cell
             
         } else {
@@ -56,7 +70,6 @@ extension SetupWeightVC {
             return defaultCell
             
         }
-        
     }
     
     override func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {

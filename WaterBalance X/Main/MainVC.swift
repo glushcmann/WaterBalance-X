@@ -8,8 +8,6 @@
 
 import UIKit
 import PanModal
-import Bond
-import ReactiveKit
 
 class MainVC: UICollectionViewController, UICollectionViewDelegateFlowLayout, UIPickerViewDelegate {
     
@@ -95,7 +93,7 @@ class MainVC: UICollectionViewController, UICollectionViewDelegateFlowLayout, UI
         setupViews()
         
         //MARK: dont forget to uncomment this line
-        UserDefaults.standard.set(true, forKey: "hasLaunched")
+//        UserDefaults.standard.set(true, forKey: "hasLaunched")
     }
 
 

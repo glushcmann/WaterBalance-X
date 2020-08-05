@@ -9,23 +9,24 @@
 import UIKit
 
 class TextFieldCell: UITableViewCell {
-    
+
     let textField: UITextField = {
         let textField = UITextField()
+        textField.text = ""
         return textField
     }()
-    
+
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        
+
         super.init(style: .value1, reuseIdentifier: reuseIdentifier)
-        
+
         contentView.addSubview(textField)
-        
-        addConstraintWithFormat("H:|[v0]|", views: textField)
-        addConstraintWithFormat("V:|[v0]|", views: textField)
-        
+
+        addConstraintWithFormat("H:|-20-[v0]-20-|", views: textField)
+        addConstraintWithFormat("V:|-10-[v0]-10-|", views: textField)
+
     }
-    
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

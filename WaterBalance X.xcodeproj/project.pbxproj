@@ -16,6 +16,7 @@
 		112471F32477166C007E1C4E /* SetupWeightVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112471F22477166C007E1C4E /* SetupWeightVC.swift */; };
 		112471F524771CA3007E1C4E /* PersonalGoalVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112471F424771CA3007E1C4E /* PersonalGoalVC.swift */; };
 		112471F724771EAF007E1C4E /* SetupNotificationsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112471F624771EAF007E1C4E /* SetupNotificationsVC.swift */; };
+		1150272424DB1121008A0A8A /* TextLabelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1150272324DB1121008A0A8A /* TextLabelCell.swift */; };
 		1150729124757244004D7760 /* ConstraintsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1150729024757244004D7760 /* ConstraintsExtension.swift */; };
 		1150729324757A23004D7760 /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1150729224757A23004D7760 /* SettingsVC.swift */; };
 		1150729624758A72004D7760 /* CalcVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1150729524758A72004D7760 /* CalcVC.swift */; };
@@ -28,6 +29,7 @@
 		11F21E1D24756F0E005C652A /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F21E1C24756F0E005C652A /* MainVC.swift */; };
 		11F21E2524756F17005C652A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 11F21E2324756F17005C652A /* LaunchScreen.storyboard */; };
 		11F44354247B0FB000A474F4 /* notification-bell.json in Resources */ = {isa = PBXBuildFile; fileRef = 11F44353247B0FB000A474F4 /* notification-bell.json */; };
+		11FC7CA824DAC4F400A709FF /* TimePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11FC7CA724DAC4F400A709FF /* TimePicker.swift */; };
 		3CBE348FA99E22BE74764657 /* Pods_WaterBalance_X.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B4373112086AA365BEA7D78 /* Pods_WaterBalance_X.framework */; };
 /* End PBXBuildFile section */
 
@@ -42,6 +44,7 @@
 		112471F424771CA3007E1C4E /* PersonalGoalVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalGoalVC.swift; sourceTree = "<group>"; };
 		112471F624771EAF007E1C4E /* SetupNotificationsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupNotificationsVC.swift; sourceTree = "<group>"; };
 		112A7F2024795E8300B028DA /* WaterBalance X.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "WaterBalance X.entitlements"; sourceTree = "<group>"; };
+		1150272324DB1121008A0A8A /* TextLabelCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextLabelCell.swift; sourceTree = "<group>"; };
 		1150729024757244004D7760 /* ConstraintsExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstraintsExtension.swift; sourceTree = "<group>"; };
 		1150729224757A23004D7760 /* SettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
 		1150729524758A72004D7760 /* CalcVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalcVC.swift; sourceTree = "<group>"; };
@@ -56,6 +59,7 @@
 		11F21E2424756F17005C652A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		11F21E2624756F17005C652A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		11F44353247B0FB000A474F4 /* notification-bell.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "notification-bell.json"; sourceTree = "<group>"; };
+		11FC7CA724DAC4F400A709FF /* TimePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimePicker.swift; sourceTree = "<group>"; };
 		3B4373112086AA365BEA7D78 /* Pods_WaterBalance_X.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WaterBalance_X.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E4D9113ABFC1EF01F7FDB09 /* Pods-WaterBalance X.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WaterBalance X.debug.xcconfig"; path = "Target Support Files/Pods-WaterBalance X/Pods-WaterBalance X.debug.xcconfig"; sourceTree = "<group>"; };
 		69F98E5F81DF91BC5E915051 /* Pods-WaterBalance X.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WaterBalance X.release.xcconfig"; path = "Target Support Files/Pods-WaterBalance X/Pods-WaterBalance X.release.xcconfig"; sourceTree = "<group>"; };
@@ -76,6 +80,7 @@
 		1104A3D024769EB400703BAD /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
+				1150729024757244004D7760 /* ConstraintsExtension.swift */,
 				117287C024DA064800DF1A8B /* Assets.xcassets */,
 				11F21E2324756F17005C652A /* LaunchScreen.storyboard */,
 			);
@@ -140,12 +145,14 @@
 			path = Settings;
 			sourceTree = "<group>";
 		};
-		118D4C0B24D7451F00DAD7DB /* Cells */ = {
+		118D4C0B24D7451F00DAD7DB /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				118D4C0924D7451900DAD7DB /* TextFieldCell.swift */,
+				1150272324DB1121008A0A8A /* TextLabelCell.swift */,
+				11FC7CA724DAC4F400A709FF /* TimePicker.swift */,
 			);
-			path = Cells;
+			path = Views;
 			sourceTree = "<group>";
 		};
 		11F21E0C24756F0E005C652A = {
@@ -177,9 +184,8 @@
 				1150729424758A57004D7760 /* Settings */,
 				1104A3D52476A3C900703BAD /* Notifications */,
 				112471EE2477158C007E1C4E /* Model */,
-				118D4C0B24D7451F00DAD7DB /* Cells */,
+				118D4C0B24D7451F00DAD7DB /* Views */,
 				1104A3D024769EB400703BAD /* Support Files */,
-				1150729024757244004D7760 /* ConstraintsExtension.swift */,
 				11F21E2624756F17005C652A /* Info.plist */,
 			);
 			path = "WaterBalance X";
@@ -326,7 +332,9 @@
 				11C7F84024770224004B1A9B /* CapacityVC.swift in Sources */,
 				1114DE1E247AE6C2004AADE8 /* OpeningVC.swift in Sources */,
 				112471F524771CA3007E1C4E /* PersonalGoalVC.swift in Sources */,
+				1150272424DB1121008A0A8A /* TextLabelCell.swift in Sources */,
 				118D4C0A24D7451900DAD7DB /* TextFieldCell.swift in Sources */,
+				11FC7CA824DAC4F400A709FF /* TimePicker.swift in Sources */,
 				117F8F20247AFB61006D86BA /* SecondOpeningVC.swift in Sources */,
 				112471F724771EAF007E1C4E /* SetupNotificationsVC.swift in Sources */,
 				1150729324757A23004D7760 /* SettingsVC.swift in Sources */,
