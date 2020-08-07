@@ -87,13 +87,13 @@ extension SetupNotificationsVC {
             
             switch indexPath.row {
             case 0:
-                cell.label.text = "Я просыпаюсь в:"
+                cell.textLabel?.text = "Я просыпаюсь в:"
                 cell.textField.text = dateFormatter.string(from: datePicker.date)
             case 1:
-                cell.label.text = "Я ложусь спать в:"
+                cell.textLabel?.text = "Я ложусь спать в:"
                 cell.textField.text = dateFormatter.string(from: datePicker.date)
             case 2:
-                cell.label.text = "Интервал между уведомлениями:"
+                cell.textLabel?.text = "Интервал между уведомлениями:"
                 cell.textField.text = dateFormatter.string(from: datePicker.date)
             default:
                 break

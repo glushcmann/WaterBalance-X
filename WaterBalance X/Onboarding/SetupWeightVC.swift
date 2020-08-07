@@ -83,6 +83,7 @@ extension SetupWeightVC {
         if indexPath.section == 0 {
             
             cell.textField.text = String(weight[numberPicker.selectedRow(inComponent: 0)])
+            cell.selectionStyle = .none
             return cell
             
         } else {

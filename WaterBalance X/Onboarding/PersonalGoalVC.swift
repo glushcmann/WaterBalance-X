@@ -39,6 +39,7 @@ extension PersonalGoalVC {
         if indexPath.section == 0 {
             cell.textLabel?.text = "100 мл"
             cell.textLabel?.textAlignment = .center
+            cell.selectionStyle = .none
         } else {
             cell.textLabel?.text = "Далее"
             cell.textLabel?.textColor = .white
