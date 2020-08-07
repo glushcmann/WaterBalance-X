@@ -16,6 +16,7 @@
 		112471F32477166C007E1C4E /* SetupWeightVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112471F22477166C007E1C4E /* SetupWeightVC.swift */; };
 		112471F524771CA3007E1C4E /* PersonalGoalVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112471F424771CA3007E1C4E /* PersonalGoalVC.swift */; };
 		112471F724771EAF007E1C4E /* SetupNotificationsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112471F624771EAF007E1C4E /* SetupNotificationsVC.swift */; };
+		114B271924DC17D30020EEE5 /* NumberPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114B271824DC17D30020EEE5 /* NumberPicker.swift */; };
 		1150272424DB1121008A0A8A /* TextLabelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1150272324DB1121008A0A8A /* TextLabelCell.swift */; };
 		1150729124757244004D7760 /* ConstraintsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1150729024757244004D7760 /* ConstraintsExtension.swift */; };
 		1150729324757A23004D7760 /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1150729224757A23004D7760 /* SettingsVC.swift */; };
@@ -44,6 +45,7 @@
 		112471F424771CA3007E1C4E /* PersonalGoalVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalGoalVC.swift; sourceTree = "<group>"; };
 		112471F624771EAF007E1C4E /* SetupNotificationsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupNotificationsVC.swift; sourceTree = "<group>"; };
 		112A7F2024795E8300B028DA /* WaterBalance X.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "WaterBalance X.entitlements"; sourceTree = "<group>"; };
+		114B271824DC17D30020EEE5 /* NumberPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberPicker.swift; sourceTree = "<group>"; };
 		1150272324DB1121008A0A8A /* TextLabelCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextLabelCell.swift; sourceTree = "<group>"; };
 		1150729024757244004D7760 /* ConstraintsExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstraintsExtension.swift; sourceTree = "<group>"; };
 		1150729224757A23004D7760 /* SettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
@@ -150,6 +152,7 @@
 			children = (
 				118D4C0924D7451900DAD7DB /* TextFieldCell.swift */,
 				1150272324DB1121008A0A8A /* TextLabelCell.swift */,
+				114B271824DC17D30020EEE5 /* NumberPicker.swift */,
 				11FC7CA724DAC4F400A709FF /* TimePicker.swift */,
 			);
 			path = Views;
@@ -326,6 +329,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1150729124757244004D7760 /* ConstraintsExtension.swift in Sources */,
+				114B271924DC17D30020EEE5 /* NumberPicker.swift in Sources */,
 				1150729624758A72004D7760 /* CalcVC.swift in Sources */,
 				11A2A175247995CC00014C1E /* WeightVC.swift in Sources */,
 				112471F32477166C007E1C4E /* SetupWeightVC.swift in Sources */,

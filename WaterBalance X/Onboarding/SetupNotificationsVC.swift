@@ -22,6 +22,7 @@ class SetupNotificationsVC: UITableViewController {
     var selectedIndex = 0
     
     func showDatePicker() {
+        
         datePicker = UIDatePicker.init()
 
         datePicker.autoresizingMask = .flexibleWidth
@@ -36,6 +37,7 @@ class SetupNotificationsVC: UITableViewController {
         toolBar.items = [UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil), UIBarButtonItem(title: "Готово", style: .done, target: self, action: #selector(self.onDoneButtonClick))]
         toolBar.sizeToFit()
         self.view.addSubview(toolBar)
+        
     }
 
     @objc func dateChanged(_ sender: UIDatePicker?) {
@@ -107,7 +109,6 @@ extension SetupNotificationsVC {
             return defaultCell
             
         }
-        
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -119,6 +120,7 @@ extension SetupNotificationsVC {
         }
         
         return title
+        
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -130,6 +132,6 @@ extension SetupNotificationsVC {
         } else {
             self.navigationController?.pushViewController(MainVC(collectionViewLayout: UICollectionViewFlowLayout()), animated: true)
         }
+        
     }
-    
 }

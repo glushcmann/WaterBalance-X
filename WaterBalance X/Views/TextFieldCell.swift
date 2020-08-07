@@ -13,6 +13,8 @@ class TextFieldCell: UITableViewCell {
     let textField: UITextField = {
         let textField = UITextField()
         textField.text = ""
+        textField.textAlignment = .center
+        textField.isUserInteractionEnabled = false
         return textField
     }()
 

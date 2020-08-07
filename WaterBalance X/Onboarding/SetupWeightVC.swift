@@ -9,7 +9,7 @@
 import UIKit
 import RealmSwift
 
-class SetupWeightVC: UITableViewController {
+class SetupWeightVC: UITableViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
     
     private let cellID = "cellID"
     private let defaultCellID = "defaultCellID"
@@ -17,11 +17,44 @@ class SetupWeightVC: UITableViewController {
     let headerTitle = "Ваш вес"
     let footerTitle = "Сообщите нам ваш вес, он необходим для того, чтобы предложить подходящее для вас количество воды в день."
     
-
-    
     let realm = try! Realm()
     
+    var weight: [Int] = [0]
+    var numberPicker = UIPickerView()
+    var toolBar = UIToolbar()
+    var selectedIndex = 0
+    
+    func addToArray() {
+        for i in 1...200 {
+            weight.append(i)
+        }
+    }
+    
+    func showNumberPicker() {
+        
+        addToArray()
+        
+        numberPicker = UIPickerView.init()
+        numberPicker.autoresizingMask = .flexibleWidth
 
+        numberPicker.dataSource = self
+        numberPicker.delegate = self
+        
+        numberPicker.frame = CGRect(x: 0.0, y: UIScreen.main.bounds.size.height - 300, width: UIScreen.main.bounds.size.width, height: 300)
+        self.view.addSubview(numberPicker)
+
+        toolBar = UIToolbar(frame: CGRect(x: 0, y: UIScreen.main.bounds.size.height - 300, width: UIScreen.main.bounds.size.width, height: 50))
+        toolBar.barStyle = UIBarStyle.default
+        toolBar.items = [UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil), UIBarButtonItem(title: "Готово", style: .done, target: self, action: #selector(self.onDoneButtonClick))]
+        toolBar.sizeToFit()
+        self.view.addSubview(toolBar)
+        
+    }
+
+    @objc func onDoneButtonClick() {
+        toolBar.removeFromSuperview()
+        numberPicker.removeFromSuperview()
+    }
     
     override func viewDidLoad() {
         
@@ -29,15 +62,7 @@ class SetupWeightVC: UITableViewController {
         self.tableView.register(TextFieldCell.self, forCellReuseIdentifier: cellID)
         self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: defaultCellID)
         
-//        let result = realm.objects(User.self)
-        let user = User()
-        user.weight = 80
-        user.goal = user.weight * 40
-        
-//        print(Realm.Configuration.defaultConfiguration.fileURL)
-        
     }
-    
 }
 
 extension SetupWeightVC {
@@ -57,8 +82,7 @@ extension SetupWeightVC {
         
         if indexPath.section == 0 {
             
-            cell.textField.text = "fddf"
-            
+            cell.textField.text = String(weight[numberPicker.selectedRow(inComponent: 0)])
             return cell
             
         } else {
@@ -97,10 +121,33 @@ extension SetupWeightVC {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         if indexPath.section == 0 {
-            
+            selectedIndex = indexPath.row
+            onDoneButtonClick()
+            showNumberPicker()
         } else {
             self.navigationController?.pushViewController(PersonalGoalVC(style: .insetGrouped), animated: true)
         }
+        
+    }
+}
+
+extension SetupWeightVC {
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return weight.count
+    }
+
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        let title = String(weight[row])
+        return title
     }
     
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        let indexPath = IndexPath(row: selectedIndex, section:0)
+        tableView.reloadRows(at: [indexPath], with: UITableView.RowAnimation.none)
+    }
+
 }
