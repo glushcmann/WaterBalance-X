@@ -65,10 +65,10 @@ class NotificationsVC: UITableViewController {
         datePicker.datePickerMode = .time
 
         datePicker.addTarget(self, action: #selector(self.dateChanged(_:)), for: .valueChanged)
-        datePicker.frame = CGRect(x: 0.0, y: UIScreen.main.bounds.size.height - 420, width: UIScreen.main.bounds.size.width, height: 420)
+        datePicker.frame = CGRect(x: 0.0, y: UIScreen.main.bounds.size.height - 415, width: UIScreen.main.bounds.size.width, height: 270)
         self.view.addSubview(datePicker)
 
-        toolBar = UIToolbar(frame: CGRect(x: 0, y: UIScreen.main.bounds.size.height - 420, width: UIScreen.main.bounds.size.width, height: 50))
+        toolBar = UIToolbar(frame: CGRect(x: 0, y: UIScreen.main.bounds.size.height - 415, width: UIScreen.main.bounds.size.width, height: 50))
         toolBar.barStyle = UIBarStyle.default
         toolBar.items = [UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil), UIBarButtonItem(title: "Готово", style: .done, target: self, action: #selector(self.onDoneButtonClick))]
         toolBar.sizeToFit()
