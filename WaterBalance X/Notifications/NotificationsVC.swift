@@ -34,7 +34,6 @@ class NotificationsVC: UITableViewController {
     }()
     
     //TODO: добавить выбор времени внутрь алерта
-    //TODO: испраить лаг выбора времени после одной остановки
     
 //    func showAlert() {
 //
@@ -78,7 +77,7 @@ class NotificationsVC: UITableViewController {
     }
 
     @objc func dateChanged(_ sender: UIDatePicker?) {
-        let indexPath = IndexPath(row: selectedIndex, section:0)
+        let indexPath = IndexPath(row: selectedIndex, section:1)
         tableView.reloadRows(at: [indexPath], with: UITableView.RowAnimation.none)
     }
 
@@ -155,22 +154,9 @@ extension NotificationsVC {
             defaultCell.selectionStyle = .none
             return defaultCell
         case 1:
-            switch indexPath.row {
-            case 0:
-                cell.textLabel?.text = data[1][0]
-                cell.textField.text = dateFormatter.string(from: datePicker.date)
-                return cell
-            case 1:
-                cell.textLabel?.text = data[1][1]
-                cell.textField.text = dateFormatter.string(from: datePicker.date)
-                return cell
-            case 2:
-                cell.textLabel?.text = data[1][2]
-                cell.textField.text = dateFormatter.string(from: datePicker.date)
-                return cell
-            default:
-                return cell
-            }
+            cell.textLabel?.text = data[1][indexPath.row]
+            cell.textField.text = dateFormatter.string(from: datePicker.date)
+            return cell
         case 2:
             defaultCell.textLabel?.text = data[2][0]
             defaultCell.accessoryType = .disclosureIndicator
