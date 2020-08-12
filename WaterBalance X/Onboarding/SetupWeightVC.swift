@@ -31,7 +31,7 @@ class SetupWeightVC: UITableViewController, UIPickerViewDelegate, UIPickerViewDa
     var toolBar = UIToolbar()
     var selectedIndex = 0
     
-    func showPickerInActionSheet() {
+    func showPickerInAlert() {
         
         let title = ""
         let message = ""
@@ -41,16 +41,15 @@ class SetupWeightVC: UITableViewController, UIPickerViewDelegate, UIPickerViewDa
         let height: NSLayoutConstraint = NSLayoutConstraint(item: alert.view!, attribute: NSLayoutConstraint.Attribute.height, relatedBy: NSLayoutConstraint.Relation.equal, toItem: nil, attribute: NSLayoutConstraint.Attribute.notAnAttribute, multiplier: 1, constant: 260)
         alert.view.addConstraint(height)
         
-        let pickerFrame: CGRect = CGRect(x: 17, y: 0, width: alert.view.bounds.width - 34, height: 260)
+        let pickerFrame: CGRect = CGRect(x: 20, y: 0, width: alert.view.bounds.width - 40, height: 260)
         numberPicker = UIPickerView.init(frame: pickerFrame)
         numberPicker.autoresizingMask = .flexibleWidth
 
         numberPicker.dataSource = self
         numberPicker.delegate = self
-        
         numberPicker.selectRow(69, inComponent: 0, animated: true)
-        alert.view.addSubview(numberPicker)
         
+        alert.view.addSubview(numberPicker)
         self.present(alert, animated: true, completion:{
             alert.view.superview?.isUserInteractionEnabled = true
             alert.view.superview?.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.alertControllerBackgroundTapped)))
@@ -93,7 +92,7 @@ extension SetupWeightVC {
         
         if indexPath.section == 0 {
             
-            cell.textField.text = String(weight[numberPicker.selectedRow(inComponent: 0)])
+            cell.textField.text = "\(String(weight[numberPicker.selectedRow(inComponent: 0)])) кг"
             cell.selectionStyle = .none
             return cell
             
@@ -134,7 +133,7 @@ extension SetupWeightVC {
         
         if indexPath.section == 0 {
             selectedIndex = indexPath.row
-            showPickerInActionSheet()
+            showPickerInAlert()
         } else {
             self.navigationController?.pushViewController(PersonalGoalVC(style: .insetGrouped), animated: true)
         }

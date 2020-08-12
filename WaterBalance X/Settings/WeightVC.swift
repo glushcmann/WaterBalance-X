@@ -24,7 +24,7 @@ class WeightVC: UITableViewController, UIPickerViewDelegate, UIPickerViewDataSou
     var toolBar = UIToolbar()
     var selectedIndex = IndexPath(row: 0, section: 0)
     
-    func showPickerInActionSheet() {
+    func showPickerInAlert() {
         
         let title = ""
         let message = ""
@@ -40,6 +40,7 @@ class WeightVC: UITableViewController, UIPickerViewDelegate, UIPickerViewDataSou
 
         numberPicker.dataSource = self
         numberPicker.delegate = self
+        numberPicker.selectRow(69, inComponent: 0, animated: true)
         
         alert.view.addSubview(numberPicker)
         self.present(alert, animated: true, completion:{
@@ -50,6 +51,12 @@ class WeightVC: UITableViewController, UIPickerViewDelegate, UIPickerViewDataSou
     
     @objc func alertControllerBackgroundTapped() {
         self.dismiss(animated: true, completion: nil)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        numberPicker.dataSource = self
+        numberPicker.delegate = self
+        numberPicker.selectRow(69, inComponent: 0, animated: true)
     }
     
     override func viewDidLoad() {
@@ -94,7 +101,7 @@ extension WeightVC {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        showPickerInActionSheet()
+        showPickerInAlert()
     }
     
 }

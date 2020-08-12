@@ -18,36 +18,45 @@ class SetupNotificationsVC: UITableViewController {
     var datePicker = UIDatePicker()
     var toolBar = UIToolbar()
     let dateFormatter = DateFormatter()
-    
     var selectedIndex = 0
     
-    func showDatePicker() {
+    func showPickerInAlert() {
         
-        datePicker = UIDatePicker.init()
+        let title = ""
+        let message = ""
+        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
+        alert.modalPresentationStyle = .popover
 
+        let height: NSLayoutConstraint = NSLayoutConstraint(item: alert.view!, attribute: NSLayoutConstraint.Attribute.height, relatedBy: NSLayoutConstraint.Relation.equal, toItem: nil, attribute: NSLayoutConstraint.Attribute.notAnAttribute, multiplier: 1, constant: 260)
+        alert.view.addConstraint(height)
+        
+        let pickerFrame: CGRect = CGRect(x: 20, y: 0, width: alert.view.bounds.width - 40, height: 260)
+        datePicker = UIDatePicker.init(frame: pickerFrame)
         datePicker.autoresizingMask = .flexibleWidth
         datePicker.datePickerMode = .time
-
+    
         datePicker.addTarget(self, action: #selector(self.dateChanged(_:)), for: .valueChanged)
-        datePicker.frame = CGRect(x: 0.0, y: UIScreen.main.bounds.size.height - 300, width: UIScreen.main.bounds.size.width, height: 300)
-        self.view.addSubview(datePicker)
-
-        toolBar = UIToolbar(frame: CGRect(x: 0, y: UIScreen.main.bounds.size.height - 300, width: UIScreen.main.bounds.size.width, height: 50))
-        toolBar.barStyle = UIBarStyle.default
-        toolBar.items = [UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil), UIBarButtonItem(title: "Готово", style: .done, target: self, action: #selector(self.onDoneButtonClick))]
-        toolBar.sizeToFit()
-        self.view.addSubview(toolBar)
         
+        alert.view.addSubview(datePicker)
+        self.present(alert, animated: true, completion:{
+            alert.view.superview?.isUserInteractionEnabled = true
+            alert.view.superview?.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.alertControllerBackgroundTapped)))
+        })
+    }
+    
+    @objc func alertControllerBackgroundTapped() {
+        self.dismiss(animated: true, completion: nil)
     }
 
     @objc func dateChanged(_ sender: UIDatePicker?) {
         let indexPath = IndexPath(row: selectedIndex, section:0)
         tableView.reloadRows(at: [indexPath], with: UITableView.RowAnimation.none)
     }
-
-    @objc func onDoneButtonClick() {
-        toolBar.removeFromSuperview()
-        datePicker.removeFromSuperview()
+    
+    override func viewWillAppear(_ animated: Bool) {
+        dateFormatter.dateFormat =  "hh:mm"
+        let date = dateFormatter.date(from: "12:00")
+        datePicker.date = date!
     }
     
     override func viewDidLoad() {
@@ -127,8 +136,7 @@ extension SetupNotificationsVC {
         
         if indexPath.section == 0 {
             selectedIndex = indexPath.row
-            onDoneButtonClick()
-            showDatePicker()
+            showPickerInAlert()
         } else {
             self.navigationController?.pushViewController(MainVC(collectionViewLayout: UICollectionViewFlowLayout()), animated: true)
         }
