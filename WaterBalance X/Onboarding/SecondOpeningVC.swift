@@ -47,7 +47,8 @@ class SecondOpeningVC: UIViewController {
     }()
     
     @objc func buttonTapped() {
-        self.navigationController?.pushViewController(SetupWeightVC(style: .insetGrouped), animated: true)
+        let vc = SetupWeightVC(style: .insetGrouped)
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     func setupViews() {

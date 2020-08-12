@@ -26,6 +26,7 @@ class SetupWeightVC: UITableViewController, UIPickerViewDelegate, UIPickerViewDa
         }
         return array
     }()
+    
     var numberPicker = UIPickerView()
     var toolBar = UIToolbar()
     var selectedIndex = 0
@@ -47,7 +48,9 @@ class SetupWeightVC: UITableViewController, UIPickerViewDelegate, UIPickerViewDa
         numberPicker.dataSource = self
         numberPicker.delegate = self
         
+        numberPicker.selectRow(69, inComponent: 0, animated: true)
         alert.view.addSubview(numberPicker)
+        
         self.present(alert, animated: true, completion:{
             alert.view.superview?.isUserInteractionEnabled = true
             alert.view.superview?.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.alertControllerBackgroundTapped)))
@@ -57,10 +60,11 @@ class SetupWeightVC: UITableViewController, UIPickerViewDelegate, UIPickerViewDa
     @objc func alertControllerBackgroundTapped() {
         self.dismiss(animated: true, completion: nil)
     }
-
-    @objc func onDoneButtonClick() {
-        toolBar.removeFromSuperview()
-        numberPicker.removeFromSuperview()
+    
+    override func viewWillAppear(_ animated: Bool) {
+        numberPicker.dataSource = self
+        numberPicker.delegate = self
+        numberPicker.selectRow(69, inComponent: 0, animated: true)
     }
     
     override func viewDidLoad() {
