@@ -19,36 +19,43 @@ class SetupWeightVC: UITableViewController, UIPickerViewDelegate, UIPickerViewDa
     
     let realm = try! Realm()
     
-    var weight: [Int] = [0]
+    var weight: [Int] = {
+        var array = [Int]()
+        for i in 1...200 {
+            array.append(i)
+        }
+        return array
+    }()
     var numberPicker = UIPickerView()
     var toolBar = UIToolbar()
     var selectedIndex = 0
     
-    func addToArray() {
-        for i in 1...200 {
-            weight.append(i)
-        }
-    }
-    
-    func showNumberPicker() {
+    func showPickerInActionSheet() {
         
-        addToArray()
+        let title = ""
+        let message = ""
+        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
+        alert.modalPresentationStyle = .popover
+
+        let height: NSLayoutConstraint = NSLayoutConstraint(item: alert.view!, attribute: NSLayoutConstraint.Attribute.height, relatedBy: NSLayoutConstraint.Relation.equal, toItem: nil, attribute: NSLayoutConstraint.Attribute.notAnAttribute, multiplier: 1, constant: 260)
+        alert.view.addConstraint(height)
         
-        numberPicker = UIPickerView.init()
+        let pickerFrame: CGRect = CGRect(x: 17, y: 0, width: alert.view.bounds.width - 34, height: 260)
+        numberPicker = UIPickerView.init(frame: pickerFrame)
         numberPicker.autoresizingMask = .flexibleWidth
 
         numberPicker.dataSource = self
         numberPicker.delegate = self
         
-        numberPicker.frame = CGRect(x: 0.0, y: UIScreen.main.bounds.size.height - 300, width: UIScreen.main.bounds.size.width, height: 300)
-        self.view.addSubview(numberPicker)
-
-        toolBar = UIToolbar(frame: CGRect(x: 0, y: UIScreen.main.bounds.size.height - 300, width: UIScreen.main.bounds.size.width, height: 50))
-        toolBar.barStyle = UIBarStyle.default
-        toolBar.items = [UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil), UIBarButtonItem(title: "Готово", style: .done, target: self, action: #selector(self.onDoneButtonClick))]
-        toolBar.sizeToFit()
-        self.view.addSubview(toolBar)
-        
+        alert.view.addSubview(numberPicker)
+        self.present(alert, animated: true, completion:{
+            alert.view.superview?.isUserInteractionEnabled = true
+            alert.view.superview?.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.alertControllerBackgroundTapped)))
+        })
+    }
+    
+    @objc func alertControllerBackgroundTapped() {
+        self.dismiss(animated: true, completion: nil)
     }
 
     @objc func onDoneButtonClick() {
@@ -123,8 +130,7 @@ extension SetupWeightVC {
         
         if indexPath.section == 0 {
             selectedIndex = indexPath.row
-            onDoneButtonClick()
-            showNumberPicker()
+            showPickerInActionSheet()
         } else {
             self.navigationController?.pushViewController(PersonalGoalVC(style: .insetGrouped), animated: true)
         }

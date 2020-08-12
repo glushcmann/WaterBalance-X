@@ -9,12 +9,22 @@
 import Foundation
 import RealmSwift
 
-class User: Object {
-    
-    @objc dynamic var weight = 0
-    @objc dynamic var goal = 0
-    @objc dynamic var wakeup: Date?
-    @objc dynamic var asleep: Date?
-    @objc dynamic var interval: Date?
-    
-}
+//class User: Object {
+//    
+//    @objc dynamic var weight = 0
+//    @objc dynamic var goal = 0
+//    @objc dynamic var wakeup: Date?
+//    @objc dynamic var asleep: Date?
+//    @objc dynamic var interval: Date?
+//    
+//}
+
+//struct User {
+//    
+//    var weight = 0
+//    var goal = 0
+//    var wakeup: Date?
+//    var asleep: Date?
+//    var interval: Date?
+//    
+//}
