@@ -141,7 +141,7 @@ extension SetupWeightVC {
             selectedIndex = indexPath.row
             showPickerInAlert()
         } else {
-            print(defaults.string(forKey: "weight")!)
+            print(defaults.integer(forKey: "weight"))
             self.navigationController?.pushViewController(SetupIntensityVC(style: .insetGrouped), animated: true)
         }
         

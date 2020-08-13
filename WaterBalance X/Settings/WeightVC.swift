@@ -12,6 +12,8 @@ class WeightVC: UITableViewController, UIPickerViewDelegate, UIPickerViewDataSou
     
     let cellID = "cellID"
     
+    let defaults = UserDefaults.standard
+    
     var weight: [Int] = {
         var array = [Int]()
         for i in 1...200 {
@@ -54,9 +56,13 @@ class WeightVC: UITableViewController, UIPickerViewDelegate, UIPickerViewDataSou
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        
         numberPicker.dataSource = self
         numberPicker.delegate = self
-        numberPicker.selectRow(69, inComponent: 0, animated: true)
+        
+        let weight = defaults.integer(forKey: "weight")
+        numberPicker.selectRow(weight-1, inComponent: 0, animated: true)
+        
     }
     
     override func viewDidLoad() {
