@@ -43,6 +43,7 @@ class MainVC: UICollectionViewController, UICollectionViewDelegateFlowLayout, UI
         let largeConfig = UIImage.SymbolConfiguration(pointSize: 30, weight: .regular, scale: .large)
         button.setImage(UIImage(systemName: "gear", withConfiguration: largeConfig), for: .normal)
         button.addTarget(self, action: #selector(settingsButtonTapped), for: .touchUpInside)
+//        button.imageEdgeInsets = UIEdgeInsets(top: 60, left: 60, bottom: 60, right: 60)
         return button
     }()
     

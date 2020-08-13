@@ -67,7 +67,8 @@ class CalcVC: UITableViewController, UIPickerViewDelegate, UIPickerViewDataSourc
         super.viewDidLoad()
         navigationItem.title = "Расчет воды"
         
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellID)
+        self.tableView.isScrollEnabled = false
+        self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellID)
         
     }
 }

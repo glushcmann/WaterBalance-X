@@ -17,6 +17,8 @@
 		112471F524771CA3007E1C4E /* PersonalGoalVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112471F424771CA3007E1C4E /* PersonalGoalVC.swift */; };
 		112471F724771EAF007E1C4E /* SetupNotificationsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112471F624771EAF007E1C4E /* SetupNotificationsVC.swift */; };
 		114B271924DC17D30020EEE5 /* NumberPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114B271824DC17D30020EEE5 /* NumberPicker.swift */; };
+		114D4FDC24E552D60054B5BE /* SetupIntensityVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114D4FDB24E552D60054B5BE /* SetupIntensityVC.swift */; };
+		114D4FDE24E559740054B5BE /* SetupGenderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114D4FDD24E559740054B5BE /* SetupGenderVC.swift */; };
 		1150272424DB1121008A0A8A /* TextLabelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1150272324DB1121008A0A8A /* TextLabelCell.swift */; };
 		1150729124757244004D7760 /* ConstraintsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1150729024757244004D7760 /* ConstraintsExtension.swift */; };
 		1150729324757A23004D7760 /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1150729224757A23004D7760 /* SettingsVC.swift */; };
@@ -46,6 +48,8 @@
 		112471F624771EAF007E1C4E /* SetupNotificationsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupNotificationsVC.swift; sourceTree = "<group>"; };
 		112A7F2024795E8300B028DA /* WaterBalance X.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "WaterBalance X.entitlements"; sourceTree = "<group>"; };
 		114B271824DC17D30020EEE5 /* NumberPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberPicker.swift; sourceTree = "<group>"; };
+		114D4FDB24E552D60054B5BE /* SetupIntensityVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupIntensityVC.swift; sourceTree = "<group>"; };
+		114D4FDD24E559740054B5BE /* SetupGenderVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupGenderVC.swift; sourceTree = "<group>"; };
 		1150272324DB1121008A0A8A /* TextLabelCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextLabelCell.swift; sourceTree = "<group>"; };
 		1150729024757244004D7760 /* ConstraintsExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstraintsExtension.swift; sourceTree = "<group>"; };
 		1150729224757A23004D7760 /* SettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
@@ -129,7 +133,9 @@
 				1114DE1A247AE61B004AADE8 /* Animations */,
 				1114DE1D247AE6C2004AADE8 /* OpeningVC.swift */,
 				117F8F1F247AFB61006D86BA /* SecondOpeningVC.swift */,
+				114D4FDD24E559740054B5BE /* SetupGenderVC.swift */,
 				112471F22477166C007E1C4E /* SetupWeightVC.swift */,
+				114D4FDB24E552D60054B5BE /* SetupIntensityVC.swift */,
 				112471F424771CA3007E1C4E /* PersonalGoalVC.swift */,
 				112471F624771EAF007E1C4E /* SetupNotificationsVC.swift */,
 			);
@@ -330,7 +336,9 @@
 			files = (
 				1150729124757244004D7760 /* ConstraintsExtension.swift in Sources */,
 				114B271924DC17D30020EEE5 /* NumberPicker.swift in Sources */,
+				114D4FDC24E552D60054B5BE /* SetupIntensityVC.swift in Sources */,
 				1150729624758A72004D7760 /* CalcVC.swift in Sources */,
+				114D4FDE24E559740054B5BE /* SetupGenderVC.swift in Sources */,
 				11A2A175247995CC00014C1E /* WeightVC.swift in Sources */,
 				112471F32477166C007E1C4E /* SetupWeightVC.swift in Sources */,
 				11C7F84024770224004B1A9B /* CapacityVC.swift in Sources */,

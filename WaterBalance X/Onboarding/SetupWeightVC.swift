@@ -14,10 +14,10 @@ class SetupWeightVC: UITableViewController, UIPickerViewDelegate, UIPickerViewDa
     private let cellID = "cellID"
     private let defaultCellID = "defaultCellID"
     
-    let headerTitle = "Ваш вес"
+    let headerTitle = "Укажите вес"
     let footerTitle = "Сообщите нам ваш вес, он необходим для того, чтобы предложить подходящее для вас количество воды в день."
     
-    let realm = try! Realm()
+    let defaults = UserDefaults.standard
     
     var weight: [Int] = {
         var array = [Int]()
@@ -61,14 +61,20 @@ class SetupWeightVC: UITableViewController, UIPickerViewDelegate, UIPickerViewDa
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        
         numberPicker.dataSource = self
         numberPicker.delegate = self
         numberPicker.selectRow(69, inComponent: 0, animated: true)
+        
+        defaults.removeObject(forKey: "weight")
+        defaults.set(70, forKey: "weight")
+        
     }
     
     override func viewDidLoad() {
         
         super.viewDidLoad()
+        self.tableView.isScrollEnabled = false
         self.tableView.register(TextFieldCell.self, forCellReuseIdentifier: cellID)
         self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: defaultCellID)
         
@@ -135,7 +141,8 @@ extension SetupWeightVC {
             selectedIndex = indexPath.row
             showPickerInAlert()
         } else {
-            self.navigationController?.pushViewController(PersonalGoalVC(style: .insetGrouped), animated: true)
+            print(defaults.string(forKey: "weight")!)
+            self.navigationController?.pushViewController(SetupIntensityVC(style: .insetGrouped), animated: true)
         }
         
     }
@@ -156,8 +163,13 @@ extension SetupWeightVC {
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        
         let indexPath = IndexPath(row: selectedIndex, section:0)
         tableView.reloadRows(at: [indexPath], with: UITableView.RowAnimation.none)
+        
+        defaults.removeObject(forKey: "weight")
+        defaults.set(row + 1, forKey: "weight")
+        
     }
 
 }

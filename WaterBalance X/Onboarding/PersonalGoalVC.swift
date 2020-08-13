@@ -15,8 +15,51 @@ class PersonalGoalVC: UITableViewController {
     let headerTitle = "Рекомендуемый объем воды"
     let footerTitle = "Эта число носит рекомендательный характер. Желательно проконсультироваться с вашим врачом."
     
+    let defaults = UserDefaults.standard
+    var goal = 0
+    
+    func calcGoal() {
+        
+        let weight = defaults.integer(forKey: "weight")
+        let gender = defaults.string(forKey: "gender")
+        let intensity = defaults.string(forKey: "intensity")
+        
+        switch gender {
+        case "male":
+            switch intensity {
+            case "low":
+                goal = 30 * weight
+            case "medium":
+                goal = 35 * weight
+            case "high":
+                goal = 40 * weight
+            default:
+                return
+            }
+        case "female":
+            switch intensity {
+            case "low":
+                goal = 25 * weight
+            case "medium":
+                goal = 30 * weight
+            case "high":
+                goal = 35 * weight
+            default:
+                return
+            }
+        default:
+            return
+        }
+        
+        defaults.removeObject(forKey: "goal")
+        defaults.set(goal, forKey: "goal")
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        calcGoal()
+        self.tableView.isScrollEnabled = false
         self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellID)
     }
     
@@ -37,7 +80,7 @@ extension PersonalGoalVC {
         let cell = self.tableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath)
         
         if indexPath.section == 0 {
-            cell.textLabel?.text = "100 мл"
+            cell.textLabel?.text = "\(goal) мл"
             cell.textLabel?.textAlignment = .center
             cell.selectionStyle = .none
         } else {

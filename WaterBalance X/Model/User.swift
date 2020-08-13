@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import RealmSwift
 
 //class User: Object {
 //    
@@ -19,12 +18,14 @@ import RealmSwift
 //    
 //}
 
-//struct User {
-//    
-//    var weight = 0
-//    var goal = 0
-//    var wakeup: Date?
-//    var asleep: Date?
-//    var interval: Date?
-//    
-//}
+struct User {
+    
+    var gender = ""
+    var weight = 0
+    var goal = 0
+    var intensity = 0
+    var wakeup: Date?
+    var asleep: Date?
+    var interval: Date?
+    
+}

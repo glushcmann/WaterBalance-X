@@ -65,7 +65,8 @@ class WeightVC: UITableViewController, UIPickerViewDelegate, UIPickerViewDataSou
         navigationItem.title = "Вес"
         view.backgroundColor = .systemGroupedBackground
         
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellID)
+        self.tableView.isScrollEnabled = false
+        self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellID)
         
     }
 }

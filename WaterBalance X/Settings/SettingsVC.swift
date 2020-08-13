@@ -31,11 +31,13 @@ class SettingsVC: UITableViewController {
         
         super.viewDidLoad()
         view.backgroundColor = .systemGroupedBackground
+        
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.title = "Настройки"
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Готово", style: .done, target: self, action: #selector(close))
         
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellID)
+        self.tableView.isScrollEnabled = false
+        self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellID)
         
     }
     

@@ -47,7 +47,7 @@ class SecondOpeningVC: UIViewController {
     }()
     
     @objc func buttonTapped() {
-        let vc = SetupWeightVC(style: .insetGrouped)
+        let vc = SetupGenderVC(style: .insetGrouped)
         self.navigationController?.pushViewController(vc, animated: true)
     }
     

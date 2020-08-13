@@ -15,6 +15,8 @@ class SetupNotificationsVC: UITableViewController {
     
     let headerTitle = "Последний шаг. Настройте напоминания"
     
+    let defaults = UserDefaults.standard
+    
     var datePicker = UIDatePicker()
     var toolBar = UIToolbar()
     let dateFormatter = DateFormatter()
@@ -49,19 +51,47 @@ class SetupNotificationsVC: UITableViewController {
     }
 
     @objc func dateChanged(_ sender: UIDatePicker?) {
+        
         let indexPath = IndexPath(row: selectedIndex, section:0)
         tableView.reloadRows(at: [indexPath], with: UITableView.RowAnimation.none)
+        
+        switch selectedIndex {
+        case 0:
+            defaults.removeObject(forKey: "wakeup")
+            defaults.set(datePicker.date, forKey: "wakeup")
+        case 1:
+            defaults.removeObject(forKey: "asleep")
+            defaults.set(datePicker.date, forKey: "asleep")
+        case 2:
+            defaults.removeObject(forKey: "interval")
+            defaults.set(datePicker.date, forKey: "interval")
+        default:
+            return
+        }
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        
         dateFormatter.dateFormat =  "hh:mm"
         let date = dateFormatter.date(from: "12:00")
         datePicker.date = date!
+        
+        defaults.removeObject(forKey: "wakeup")
+        defaults.set(datePicker.date, forKey: "wakeup")
+        
+        defaults.removeObject(forKey: "asleep")
+        defaults.set(datePicker.date, forKey: "asleep")
+
+        defaults.removeObject(forKey: "interval")
+        defaults.set(datePicker.date, forKey: "interval")
+        
     }
     
     override func viewDidLoad() {
         
         super.viewDidLoad()
+        self.tableView.isScrollEnabled = false
         self.tableView.register(TextLabelCell.self, forCellReuseIdentifier: cellID)
         self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: defaultCellID)
         

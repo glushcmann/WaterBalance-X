@@ -88,6 +88,7 @@ class NotificationsVC: UITableViewController {
         navigationItem.title = "Напоминания"
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Готово", style: .done, target: self, action: #selector(close))
         
+        tableView.isScrollEnabled = false
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: defaultCellID)
         tableView.register(TextLabelCell.self, forCellReuseIdentifier: cellID)
         

@@ -22,7 +22,8 @@ class UnitsVC: UITableViewController {
         super.viewDidLoad()
         navigationItem.title = "Единицы измерения"
         
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellID)
+        self.tableView.isScrollEnabled = false
+        self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellID)
         
     }
 }
