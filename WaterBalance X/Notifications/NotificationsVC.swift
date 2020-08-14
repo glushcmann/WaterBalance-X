@@ -13,6 +13,8 @@ class NotificationsVC: UITableViewController {
     let cellID = "cellID"
     let defaultCellID = "defaultCellID"
     
+    let defaults = UserDefaults.standard
+    
     var datePicker = UIDatePicker()
     var toolBar = UIToolbar()
     let dateFormatter = DateFormatter()
@@ -75,11 +77,47 @@ class NotificationsVC: UITableViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        dateFormatter.dateFormat =  "hh:mm"
-        let date = dateFormatter.date(from: "12:00")
-        datePicker.date = date!
+        
+        dateFormatter.dateFormat = "H:mm"
+        let indexPath = IndexPath(row: selectedIndex, section:1)
+        
+        switch selectedIndex {
+        case 0:
+            let wakeup = defaults.string(forKey: "wakeup")!
+            datePicker.date = dateFormatter.date(from: wakeup)!
+            tableView.reloadRows(at: [indexPath], with: UITableView.RowAnimation.none)
+        case 1:
+            let asleep = defaults.string(forKey: "asleep")!
+            datePicker.date = dateFormatter.date(from: asleep)!
+            tableView.reloadRows(at: [indexPath], with: UITableView.RowAnimation.none)
+        default:
+            return
+        }
+   
+//        for cell in 0...2 {
+//
+//            let indexPath = IndexPath(row: cell, section:1)
+//
+//            switch cell {
+//            case 0:
+//                let wakeup = defaults.string(forKey: "wakeup")!
+//                tableView.cellForRow(at: indexPath)?.detailTextLabel?.text = wakeup
+//                tableView.reloadRows(at: [indexPath], with: UITableView.RowAnimation.none)
+//            case 1:
+//                let asleep = defaults.string(forKey: "asleep")!
+//                tableView.cellForRow(at: indexPath)?.detailTextLabel?.text = asleep
+//                tableView.reloadRows(at: [indexPath], with: UITableView.RowAnimation.none)
+//            case 2:
+//                let interval = defaults.string(forKey: "interval")!
+//                tableView.cellForRow(at: indexPath)?.detailTextLabel?.text = interval
+//                tableView.reloadRows(at: [indexPath], with: UITableView.RowAnimation.none)
+//            default:
+//                return
+//            }
+//        }
+        
     }
-
+    
     override func viewDidLoad() {
 
         super.viewDidLoad()
@@ -127,8 +165,8 @@ extension NotificationsVC {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let defaultCell = self.tableView.dequeueReusableCell(withIdentifier: defaultCellID, for: indexPath)
-        let cell = self.tableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath) as! TextLabelCell
+        var defaultCell = self.tableView.dequeueReusableCell(withIdentifier: defaultCellID, for: indexPath)
+        defaultCell = UITableViewCell(style: .value1, reuseIdentifier: defaultCellID)
         
         dateFormatter.timeStyle = .short
         dateFormatter.dateFormat = "H:mm"
@@ -140,9 +178,9 @@ extension NotificationsVC {
             defaultCell.selectionStyle = .none
             return defaultCell
         case 1:
-            cell.textLabel?.text = data[1][indexPath.row]
-            cell.textField.text = dateFormatter.string(from: datePicker.date)
-            return cell
+            defaultCell.textLabel?.text = data[1][indexPath.row]
+            defaultCell.detailTextLabel?.text = dateFormatter.string(from: datePicker.date)
+            return defaultCell
         case 2:
             defaultCell.textLabel?.text = data[2][0]
             defaultCell.accessoryType = .disclosureIndicator

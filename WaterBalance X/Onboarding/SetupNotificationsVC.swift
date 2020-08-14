@@ -97,7 +97,7 @@ class SetupNotificationsVC: UITableViewController {
         
         super.viewDidLoad()
         self.tableView.isScrollEnabled = false
-        self.tableView.register(TextLabelCell.self, forCellReuseIdentifier: cellID)
+        self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellID)
         self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: defaultCellID)
         
     }
@@ -121,8 +121,9 @@ extension SetupNotificationsVC {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let defaultCell = self.tableView.dequeueReusableCell(withIdentifier: defaultCellID, for: indexPath)
-        let cell = self.tableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath) as! TextLabelCell
+        let buttonCell = self.tableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath)
+        var defaultCell = self.tableView.dequeueReusableCell(withIdentifier: defaultCellID, for: indexPath)
+        defaultCell = UITableViewCell(style: .value1, reuseIdentifier: defaultCellID)
         
         dateFormatter.timeStyle = .short
         dateFormatter.dateFormat = "H:mm"
@@ -131,29 +132,31 @@ extension SetupNotificationsVC {
             
             switch indexPath.row {
             case 0:
-                cell.textLabel?.text = "Я просыпаюсь в:"
-                cell.textField.text = dateFormatter.string(from: datePicker.date)
+                defaultCell.textLabel?.text = "Я просыпаюсь в:"
+                defaultCell.detailTextLabel?.text = dateFormatter.string(from: datePicker.date)
             case 1:
-                cell.textLabel?.text = "Я ложусь спать в:"
-                cell.textField.text = dateFormatter.string(from: datePicker.date)
+                defaultCell.textLabel?.text = "Я ложусь спать в:"
+                defaultCell.detailTextLabel?.text = dateFormatter.string(from: datePicker.date)
             case 2:
-                cell.textLabel?.text = "Интервал между уведомлениями:"
-                cell.textField.text = dateFormatter.string(from: datePicker.date)
+                defaultCell.textLabel?.text = "Интервал между уведомлениями:"
+                defaultCell.detailTextLabel?.text = dateFormatter.string(from: datePicker.date)
             default:
                 break
             }
-            return cell
+            
+            return defaultCell
             
         } else {
             
-            defaultCell.textLabel?.text = "Готово"
-            defaultCell.textLabel?.textColor = .white
-            defaultCell.textLabel?.textAlignment = .center
-            defaultCell.backgroundColor = .systemBlue
-            defaultCell.selectionStyle = .none
-            return defaultCell
+            buttonCell.textLabel?.text = "Готово"
+            buttonCell.textLabel?.textColor = .white
+            buttonCell.textLabel?.textAlignment = .center
+            buttonCell.backgroundColor = .systemBlue
+            buttonCell.selectionStyle = .none
+            return buttonCell
             
         }
+        
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {

@@ -12,7 +12,6 @@ import RealmSwift
 class SetupWeightVC: UITableViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
     
     private let cellID = "cellID"
-    private let defaultCellID = "defaultCellID"
     
     let headerTitle = "Укажите вес"
     let footerTitle = "Сообщите нам ваш вес, он необходим для того, чтобы предложить подходящее для вас количество воды в день."
@@ -75,8 +74,7 @@ class SetupWeightVC: UITableViewController, UIPickerViewDelegate, UIPickerViewDa
         
         super.viewDidLoad()
         self.tableView.isScrollEnabled = false
-        self.tableView.register(TextFieldCell.self, forCellReuseIdentifier: cellID)
-        self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: defaultCellID)
+        self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellID)
         
     }
 }
@@ -93,24 +91,23 @@ extension SetupWeightVC {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let defaultCell = self.tableView.dequeueReusableCell(withIdentifier: defaultCellID, for: indexPath)
-        let cell = self.tableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath) as! TextFieldCell
+        let defaultCell = self.tableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath)
         
         if indexPath.section == 0 {
-            
-            cell.textField.text = "\(String(weight[numberPicker.selectedRow(inComponent: 0)])) кг"
-            cell.selectionStyle = .none
-            return cell
-            
+            defaultCell.textLabel?.text = "\(String(weight[numberPicker.selectedRow(inComponent: 0)])) кг"
+            defaultCell.selectionStyle = .none
+            defaultCell.textLabel?.textAlignment = .center
         } else {
             
             defaultCell.textLabel?.text = "Далее"
             defaultCell.textLabel?.textColor = .white
             defaultCell.textLabel?.textAlignment = .center
             defaultCell.backgroundColor = .systemBlue
-            return defaultCell
             
         }
+        
+        return defaultCell
+        
     }
     
     override func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
