@@ -80,33 +80,16 @@ class SetupNotificationsVC: UITableViewController {
         switch selectedIndex {
         case 0:
             defaults.removeObject(forKey: "wakeup")
-            defaults.set(datePicker.date, forKey: "wakeup")
+            defaults.set(dateFormatter.string(from: datePicker.date), forKey: "wakeup")
         case 1:
             defaults.removeObject(forKey: "asleep")
-            defaults.set(datePicker.date, forKey: "asleep")
+            defaults.set(dateFormatter.string(from: datePicker.date), forKey: "asleep")
         case 2:
             defaults.removeObject(forKey: "interval")
-            defaults.set(datePicker.date, forKey: "interval")
+            defaults.set(dateFormatter.string(from: datePicker.date), forKey: "interval")
         default:
             return
         }
-        
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        
-        dateFormatter.dateFormat =  "hh:mm"
-        let date = dateFormatter.date(from: "12:00")
-        datePicker.date = date!
-        
-        defaults.removeObject(forKey: "wakeup")
-        defaults.set(datePicker.date, forKey: "wakeup")
-        
-        defaults.removeObject(forKey: "asleep")
-        defaults.set(datePicker.date, forKey: "asleep")
-
-        defaults.removeObject(forKey: "interval")
-        defaults.set(datePicker.date, forKey: "interval")
         
     }
     
