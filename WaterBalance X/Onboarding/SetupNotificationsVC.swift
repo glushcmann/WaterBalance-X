@@ -22,6 +22,28 @@ class SetupNotificationsVC: UITableViewController {
     let dateFormatter = DateFormatter()
     var selectedIndex = 0
     
+    func showAlert() {
+        
+        let title = "Вы не настроили уведомления, можно сделать это позже "
+        let message = ""
+        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
+        alert.modalPresentationStyle = .popover
+        
+        let okAction = UIAlertAction(title: "Добавить потом", style: UIAlertAction.Style.default) {
+            UIAlertAction in
+            self.navigationController?.pushViewController(MainVC(collectionViewLayout: UICollectionViewFlowLayout()), animated: true)
+        }
+        alert.addAction(okAction)
+        
+        let cancelAction = UIAlertAction(title: "Добавить сейчас", style: UIAlertAction.Style.default)
+        alert.addAction(cancelAction)
+        
+        self.present(alert, animated: true, completion:{
+            alert.view.superview?.isUserInteractionEnabled = true
+            alert.view.superview?.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.alertControllerBackgroundTapped)))
+        })
+    }
+    
     func showPickerInAlert() {
         
         let title = ""
@@ -145,6 +167,7 @@ extension SetupNotificationsVC {
             defaultCell.textLabel?.textColor = .white
             defaultCell.textLabel?.textAlignment = .center
             defaultCell.backgroundColor = .systemBlue
+            defaultCell.selectionStyle = .none
             return defaultCell
             
         }
@@ -165,10 +188,20 @@ extension SetupNotificationsVC {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         if indexPath.section == 0 {
+            
             selectedIndex = indexPath.row
             showPickerInAlert()
-        } else {
+            
+        } else if (indexPath.section == 1) && (defaults.string(forKey: "wakeup") != nil) && (defaults.string(forKey: "asleep") != nil) && (defaults.string(forKey: "interval") != nil) {
+            
+            print(defaults.string(forKey: "wakeup")!)
+            print(defaults.string(forKey: "asleep")!)
+            print(defaults.string(forKey: "interval")!)
+            
             self.navigationController?.pushViewController(MainVC(collectionViewLayout: UICollectionViewFlowLayout()), animated: true)
+            
+        } else {
+            showAlert()
         }
         
     }
